@@ -1,4 +1,5 @@
 ﻿using BusinessLogicLayer.Abstract;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -10,39 +11,44 @@ namespace BusinessLogicLayer.Concrete
     public class CategoryManager : ICategoryService
     {
 
-        EfCategoryRepository efCategory;
+        //EfCategoryRepository efCategory;
+        //I give up on EfRepo because then I would be very much depend on it
+        //So I to go for Interfase
 
-        public CategoryManager()  //CTOR
+        ICategoryDal _categoryDal;
+
+
+        public CategoryManager(ICategoryDal categoryDal)
         {
-            efCategory = new EfCategoryRepository();
-
+            _categoryDal = categoryDal;
         }
+
         public void CategoryAdd(Category category)
         {
-            efCategory.Insert(category);
+            _categoryDal.Insert(category);
 
         }
 
         public void CategoryDelete(Category category)
         {
-            efCategory.Delete(category);
+            _categoryDal.Delete(category);
 
         }
 
         public void CategoryUpdate(Category category)
         {
-            efCategory.Update(category);
+            _categoryDal.Update(category);
 
         }
 
         public Category GetById(int id)
         { 
-            return efCategory.GetById(id);
+            return _categoryDal.GetById(id);
         }        
 
         public List<Category> GetList()
         {
-            return efCategory.GetAllList();
+            return _categoryDal.GetAllList();
         }
     }
 }
