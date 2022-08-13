@@ -16,7 +16,7 @@ namespace EntityLayer.Concrete
         public string CategoryName { get; set; }
 
         public string CategoryDescription { get; set; }
-        public bool CategoryIsActive { get; set; }
+        public bool IsActiveCategory { get; set; }
     } 
 }
 
