@@ -25,10 +25,8 @@ namespace EntityLayer.Concrete
 
         public bool IsActiveComment { get; set; }
 
+        public int BlogId { get; set; }
+        public Blog Blogs { get; set; }
 
-
-
-        // There will be relation between the comment and the blog 
-        // soon to be implemented
     }
 }

@@ -19,6 +19,10 @@ namespace EntityLayer.Concrete
 
         public string CategoryDescription { get; set; }
         public bool IsActiveCategory { get; set; }
+
+        //To create a relation 
+        public List<Blog> Blogs { get; set; }
+        //this will engage Categories to the Blogs in List way
     } 
 }
 

@@ -4,10 +4,25 @@
 First things first, We whould add the EntityFramework Components as packages
 
 Microsoft.EntityFramework Core
-Microsoft.EntityFramework Design 
+Microsoft.EntityFramework Design // project wouldnt add any migration if this is missing // it may give an error that the PL has no this package,, then add...
 Microsoft.EntityFramework SqlServer
 Microsoft.EntityFramework Tools
 
 
 
-Then the connection strings and Context class should be created to SQL
+Then the connection strings into the Context class should be created to SQL 
+
+ALl entities we want to use in our Dataserver as tables should be added
+to the Context Class as prop
+
+example
+
+public DbSet<Sample> Samples {get; set;}
+
+And then we apply migrations via package manager console 
+but the migrations are significantly should be applied to the DAL
+migrations helps CODEFIRST
+
+add-migration mig_add_sample
+update-database
+

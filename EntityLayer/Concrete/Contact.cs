@@ -18,5 +18,6 @@ namespace EntityLayer.Concrete
 
         public DateTime ContactDate { get; set; }
         public bool IsActiveContact { get; set; }
+
     }
 }

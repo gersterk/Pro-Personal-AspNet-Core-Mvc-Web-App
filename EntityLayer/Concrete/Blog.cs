@@ -20,5 +20,19 @@ namespace EntityLayer.Concrete
         public string BlogImage { get; set; }
         public DateTime PublishDate { get; set; }
         public bool IsActiveBlog { get; set; }
+
+
+        //To create a relation 
+        public int CategoryId { get; set; }
+        //CategoryId should be identical as we have engaged the categories to the blog
+        public Category Category { get; set; }
+        //We derive a category from category class
+        //to provide the categoryid to Blogs
+        //blogs will be listing the categories
+        //to have this relationships on dataserver(sql) too, we should apply migration
+
+        List<CommentMail> CommentMails { get; set; }
+      
+
     }
 }
