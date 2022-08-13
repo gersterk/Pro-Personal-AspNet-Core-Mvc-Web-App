@@ -1,0 +1,10 @@
+﻿
+
+
+First things first, We whould add the EntityFramework Components as packages
+
+Microsoft.EntityFramework Core
+Microsoft.EntityFramework Design 
+Microsoft.EntityFramework SqlServer
+Microsoft.EntityFramework Tools
+
