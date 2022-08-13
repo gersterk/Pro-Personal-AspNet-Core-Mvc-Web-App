@@ -11,29 +11,6 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfContactRepository : GenericRepository<Contact>, IContactDal
     {
-        public void Delete(CommentMail t)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Insert(CommentMail t)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(CommentMail t)
-        {
-            throw new NotImplementedException();
-        }
-
-        List<CommentMail> IGenericDal<CommentMail>.GetAllList()
-        {
-            throw new NotImplementedException();
-        }
-
-        CommentMail IGenericDal<CommentMail>.GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

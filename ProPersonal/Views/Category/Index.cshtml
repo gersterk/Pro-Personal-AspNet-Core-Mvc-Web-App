@@ -1,0 +1,29 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<table>
+    <tr>
+        <th>#</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Update</th>
+        <th>Delete</th>
+        <th>Add</th>
+        
+    </tr>
+    @foreach(var item in Model)
+    {
+        
+        <tr>
+            <td>@item.CategoryName</td>
+            <td>@item.CategoryDescription</td>
+            
+        </tr>
+    }
+
+</table>
