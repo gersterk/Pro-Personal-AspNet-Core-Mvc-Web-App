@@ -15,15 +15,12 @@ namespace DataAccessLayer.Repository
             using var c = new Context();
             c.Remove(t);
             c.SaveChanges();
-
-
         }
 
         public List<T> GetAllList()
         {
             using var c = new Context();
             return c.Set<T>().ToList();
-
         }
 
         public T GetById(int id)

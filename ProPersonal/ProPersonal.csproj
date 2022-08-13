@@ -5,6 +5,77 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Theme\web\about.html" />
+    <None Include="wwwroot\Theme\web\blog1.html" />
+    <None Include="wwwroot\Theme\web\blog2.html" />
+    <None Include="wwwroot\Theme\web\blog3.html" />
+    <None Include="wwwroot\Theme\web\contact.html" />
+    <None Include="wwwroot\Theme\web\css\bootstrap.css" />
+    <None Include="wwwroot\Theme\web\css\contact.css" />
+    <None Include="wwwroot\Theme\web\css\fontawesome-all.css" />
+    <None Include="wwwroot\Theme\web\css\jquery.desoslide.css" />
+    <None Include="wwwroot\Theme\web\css\single.css" />
+    <None Include="wwwroot\Theme\web\css\style.css" />
+    <None Include="wwwroot\Theme\web\images\1.jpg" />
+    <None Include="wwwroot\Theme\web\images\2.jpg" />
+    <None Include="wwwroot\Theme\web\images\3.jpg" />
+    <None Include="wwwroot\Theme\web\images\4.jpg" />
+    <None Include="wwwroot\Theme\web\images\5.jpg" />
+    <None Include="wwwroot\Theme\web\images\6.jpg" />
+    <None Include="wwwroot\Theme\web\images\7.jpg" />
+    <None Include="wwwroot\Theme\web\images\8.jpg" />
+    <None Include="wwwroot\Theme\web\images\b1.jpg" />
+    <None Include="wwwroot\Theme\web\images\b2.jpg" />
+    <None Include="wwwroot\Theme\web\images\b3.jpg" />
+    <None Include="wwwroot\Theme\web\images\b4.jpg" />
+    <None Include="wwwroot\Theme\web\images\b5.jpg" />
+    <None Include="wwwroot\Theme\web\images\banner1.jpg" />
+    <None Include="wwwroot\Theme\web\images\banner2.jpg" />
+    <None Include="wwwroot\Theme\web\images\banner3.jpg" />
+    <None Include="wwwroot\Theme\web\images\banner4.jpg" />
+    <None Include="wwwroot\Theme\web\images\banner5.jpg" />
+    <None Include="wwwroot\Theme\web\images\left.png" />
+    <None Include="wwwroot\Theme\web\images\m1.jpg" />
+    <None Include="wwwroot\Theme\web\images\m2.jpg" />
+    <None Include="wwwroot\Theme\web\images\m3.jpg" />
+    <None Include="wwwroot\Theme\web\images\m4.jpg" />
+    <None Include="wwwroot\Theme\web\images\right.png" />
+    <None Include="wwwroot\Theme\web\images\t1.jpg" />
+    <None Include="wwwroot\Theme\web\images\t2.jpg" />
+    <None Include="wwwroot\Theme\web\images\t3.jpg" />
+    <None Include="wwwroot\Theme\web\images\t4.jpg" />
+    <None Include="wwwroot\Theme\web\images\Thumbs.db" />
+    <None Include="wwwroot\Theme\web\images\top_up.png" />
+    <None Include="wwwroot\Theme\web\index.html" />
+    <None Include="wwwroot\Theme\web\js\bootstrap.js" />
+    <None Include="wwwroot\Theme\web\js\easing.js" />
+    <None Include="wwwroot\Theme\web\js\jquery-2.2.3.min.js" />
+    <None Include="wwwroot\Theme\web\js\jquery.desoslide.js" />
+    <None Include="wwwroot\Theme\web\js\jquery.flexisel.js" />
+    <None Include="wwwroot\Theme\web\js\modernizr.custom.min.js" />
+    <None Include="wwwroot\Theme\web\js\move-top.js" />
+    <None Include="wwwroot\Theme\web\login.html" />
+    <None Include="wwwroot\Theme\web\register.html" />
+    <None Include="wwwroot\Theme\web\single.html" />
+    <None Include="wwwroot\Theme\web\w3layouts-license.txt" />
+    <None Include="wwwroot\Theme\web\webfonts\fa-brands-400.eot" />
+    <None Include="wwwroot\Theme\web\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\Theme\web\webfonts\fa-brands-400.ttf" />
+    <None Include="wwwroot\Theme\web\webfonts\fa-brands-400.woff" />
+    <None Include="wwwroot\Theme\web\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\Theme\web\webfonts\fa-regular-400.eot" />
+    <None Include="wwwroot\Theme\web\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\Theme\web\webfonts\fa-regular-400.ttf" />
+    <None Include="wwwroot\Theme\web\webfonts\fa-regular-400.woff" />
+    <None Include="wwwroot\Theme\web\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\Theme\web\webfonts\fa-solid-900.eot" />
+    <None Include="wwwroot\Theme\web\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\Theme\web\webfonts\fa-solid-900.ttf" />
+    <None Include="wwwroot\Theme\web\webfonts\fa-solid-900.woff" />
+    <None Include="wwwroot\Theme\web\webfonts\fa-solid-900.woff2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.9">
       <PrivateAssets>all</PrivateAssets>
