@@ -1,45 +1,48 @@
 ﻿using BusinessLogicLayer.Abstract;
-using DataAccessLayer.GenericRepository;
-using DataAccessLayer.Repository;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BusinessLogicLayer.Concrete
 {
     public class CategoryManager : ICategoryService
     {
-        GenericRepository<Category> repo = new GenericRepository<Category>();
 
+        EfCategoryRepository efCategory;
 
+        public CategoryManager()  //CTOR
+        {
+            efCategory = new EfCategoryRepository();
+
+        }
         public void CategoryAdd(Category category)
         {
-            throw new NotImplementedException();
-
+            efCategory.Insert(category);
 
         }
 
         public void CategoryDelete(Category category)
         {
-            throw new NotImplementedException();
+            efCategory.Delete(category);
+
         }
 
         public void CategoryUpdate(Category category)
         {
-            throw new NotImplementedException();
+            efCategory.Update(category);
+
         }
 
         public Category GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
+        { 
+            return efCategory.GetById(id);
+        }        
 
         public List<Category> GetList()
         {
-            throw new NotImplementedException();
+            return efCategory.GetAllList();
         }
     }
 }
