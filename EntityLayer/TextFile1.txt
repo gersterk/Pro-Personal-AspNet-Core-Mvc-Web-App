@@ -1,0 +1,15 @@
+﻿The entities will be available in my app
+
+Blog
+Category
+[NO COMMENT]
+Pojects
+Writer
+About
+Contact
+Adress
+[
+Resume CV
+Skills and Interest
+]
+
