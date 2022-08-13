@@ -1,0 +1,15 @@
+
+
+
+To work with the projects in the entire solutions, we have refere the projects(layers) to each other
+
+DAL will be engaged(use) to the Entity Layer
+
+BLL will be engaged(use) to the DAL and Entity Layer
+
+PL will use all of them 
+
+
+how to engage them?
+
+Go to the layer's Dependancies, right click, Add project reference
