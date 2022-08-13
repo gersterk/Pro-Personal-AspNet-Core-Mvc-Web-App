@@ -8,7 +8,7 @@ Microsoft.EntityFramework Design // project wouldnt add any migration if this is
 Microsoft.EntityFramework SqlServer
 Microsoft.EntityFramework Tools
 
-
+---------------------------------------------------------
 
 Then the connection strings into the Context class should be created to SQL 
 
@@ -26,3 +26,13 @@ migrations helps CODEFIRST
 add-migration mig_add_sample
 update-database
 
+
+---------------------------------------------------------
+GENERIC REPO 
+
+CRUD 
+Create, Read, Update, Delete
+
+A metod will be implemented for each operations of crud
+will sign into the abstract
+and therefore we will be able to fill them up into the Concrete
