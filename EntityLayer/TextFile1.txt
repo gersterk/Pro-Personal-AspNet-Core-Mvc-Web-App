@@ -2,7 +2,13 @@
 
 Blog
 Category
+
+
 CommentMail[NO COMMENT]
+when someone comments to any of my blog, I will see on my dashboard
+and then simultanously will be mailed to me because I will ask to user 
+to input their emails
+
 Pojects
 Writer
 About

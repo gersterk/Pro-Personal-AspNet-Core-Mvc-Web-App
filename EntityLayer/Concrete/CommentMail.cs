@@ -12,5 +12,21 @@ namespace EntityLayer.Concrete
 {
     public class CommentMail
     {
+        public int CommentId { get; set; }
+        public string CommentUserName { get; set; }
+        public string CommentContent { get; set; } 
+        public string CommentTitle { get; set; }
+        //comment title will be merged with PROPERSONAL:<user title>
+        //to my mail box with the title... I have no idea how to do that yet but I will figure it out
+
+        public DateTime CommentDate { get; set; }
+
+        public bool IsActiveComment { get; set; }
+
+
+
+
+        // There will be relation between the comment and the blog 
+        // soon to be implemented
     }
 }
