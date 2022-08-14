@@ -9,7 +9,7 @@ namespace ProPersonal.Controllers
         BlogManager bm = new BlogManager(new EfBlogRepository());
         public IActionResult Index()
         {
-            var values = bm.GetList();
+            var values = bm.GetBlogListByCategory();
 
             return View(values);
         }
