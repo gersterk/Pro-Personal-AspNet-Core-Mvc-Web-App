@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLogicLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ProPersonal.Controllers
 {
     public class CommentMailController : Controller
     {
+        CommentMailManager cm = new CommentMailManager(new EfCommentMailRepository());
+
         public IActionResult Index()
         {
             return View();
@@ -15,9 +19,10 @@ namespace ProPersonal.Controllers
 
         }
 
-        public PartialViewResult CommentListByBlog()
+        public PartialViewResult CommentListByBlog(int id)
         {
-            return PartialView();
+            var values = cm.GetList(id);
+            return PartialView(values);
 
         }
 
