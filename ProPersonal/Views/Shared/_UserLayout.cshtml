@@ -40,19 +40,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		@await Html.PartialAsync("_Navbar")
 	</header>
-	<!--//header--> 
-	<!--/banner-->
-	<div class="banner-inner">
-	</div>
-	<ol class="breadcrumb">
-		<li class="breadcrumb-item">
-			<a href="index.html">Home</a>
-		</li>
-		<li class="breadcrumb-item active">Blog3</li>
-	</ol>
-	<!--//banner-->
 
-	<!--/main-->
+
 	@RenderBody()
 	<!--//main-->
 	<!--footer-->
@@ -74,30 +63,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				}, 900);
 			});
 		});
-	</script>
-	<!--// end-smoth-scrolling -->
-
-	<script>
-		$(document).ready(function () {
-			/*
-									var defaults = {
-							  			containerID: 'toTop', // fading element id
-										containerHoverID: 'toTopHover', // fading element hover id
-										scrollSpeed: 1200,
-										easingType: 'linear' 
-							 		};
-									*/
-
-			$().UItoTop({
-				easingType: 'easeOutQuart'
-			});
-
-		});
-	</script>
-	<a href="#home" class="scroll" id="toTop" style="display: block;">
-		<span id="toTopHover" style="opacity: 1;"> </span>
-	</a>
-
+	
 	<!-- //Custom-JavaScript-File-Links -->
 	<script src="~/Theme/web/js/bootstrap.js"></script>
 

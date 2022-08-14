@@ -10,8 +10,12 @@ namespace ProPersonal.Controllers
         public IActionResult Index()
         {
             var values = bm.GetBlogListByCategory();
-
             return View(values);
+        }
+
+        public IActionResult BlogDetails(int id)
+        {
+            return View();
         }
     }
 }
