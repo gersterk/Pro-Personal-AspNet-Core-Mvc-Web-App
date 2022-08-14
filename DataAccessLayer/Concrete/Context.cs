@@ -30,6 +30,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<CommentMail> CommentMails { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Writer> Writers { get; set; }
+        public DbSet<Project> Projects { get; set; }
 
     }
 }
