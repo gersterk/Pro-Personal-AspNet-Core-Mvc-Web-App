@@ -10,7 +10,6 @@ namespace ProPersonal.ViewComponents.CommentComponents
         public IViewComponentResult Invoke(int id)
         {
             var values = cm.GetList(id);
-
             return View(values);
         }
     }
