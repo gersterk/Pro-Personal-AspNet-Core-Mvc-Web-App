@@ -21,7 +21,7 @@ namespace BusinessLogicLayer.Concrete
         public void BlogAdd(Blog blog)
         {
             throw new NotImplementedException();
-        }
+        } 
 
         public void BlogDelete(Blog blog)
         {
