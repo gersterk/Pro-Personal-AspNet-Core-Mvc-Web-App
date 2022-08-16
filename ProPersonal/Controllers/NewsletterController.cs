@@ -16,11 +16,11 @@ namespace ProPersonal.Controllers
             return PartialView();
         }
         [HttpPost]
-        public PartialViewResult SubscribeMail(Newsletter p)
+        public IActionResult SubscribeMail(Newsletter p)
         {
             p.IsActiveMail = true;
             nm.AddNewsletter(p);
-            return PartialView();
+            return RedirectToAction("Index", "Blog");
         }
     }
 }

@@ -23,14 +23,14 @@ namespace ProPersonal.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult AddComment(CommentMail p)
+        public IActionResult AddComment(CommentMail p)
         {
             p.CommentDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             p.IsActiveComment = true;
             p.BlogId = 6;
             cm.CommentAdd(p);
                                         //THERES SOMETHING WRONG WITH HERE AND IDK WHAT :D CODESMELL
-            return PartialView();
+            return RedirectToAction("BlogReadAll", "Blog");
 
         }
 

@@ -5,7 +5,7 @@
 <div class="tech-btm">
     <h4>Popular</h4>
 
-    @foreach(var item in Model)
+    @foreach(var item in Model.Take(4))
     {
         
     
@@ -18,7 +18,7 @@
         <div class="col-md-7 blog-grid-right">
 
             <h5>
-                <a href="single.html">@item.BlogName </a>
+                <a href="/Blog/BlogReadAll/@item.BlogId">@item.BlogName </a>
             </h5>
             <div class="sub-meta">
                 <span>
