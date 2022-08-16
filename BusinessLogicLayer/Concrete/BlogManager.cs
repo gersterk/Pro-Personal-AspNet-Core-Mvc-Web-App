@@ -42,7 +42,7 @@ namespace BusinessLogicLayer.Concrete
 
         public List<Blog> GetBlogById(int id)
         {
-            return _blogDal.GetAllList(x => x.BlogId==id);
+            return _blogDal.GetAllList(x =>x.BlogId==id);
         }
 
         public List<Blog> GetList()
