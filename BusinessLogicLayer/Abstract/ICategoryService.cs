@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Abstract
 {
-    interface ICategoryService
+    public interface ICategoryService
     {
         void CategoryAdd(Category category);
         void CategoryDelete(Category category);

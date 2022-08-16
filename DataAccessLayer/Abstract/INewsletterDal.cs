@@ -5,11 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogicLayer.Abstract
+namespace DataAccessLayer.Abstract
 {
-    public interface IWriterService
+    public interface INewsletterDal : IGenericDal<Newsletter>
     {
-        void WriterAdd(Writer writer);
-      
     }
 }

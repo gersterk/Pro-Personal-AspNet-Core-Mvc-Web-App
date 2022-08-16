@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Abstract
 {
-    public interface IWriterService
+     public interface INewsletterService
     {
-        void WriterAdd(Writer writer);
-      
+        void AddNewsletter(Newsletter newsletter);
+
     }
 }

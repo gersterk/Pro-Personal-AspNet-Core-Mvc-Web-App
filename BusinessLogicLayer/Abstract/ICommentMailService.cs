@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Abstract
 {
-    interface ICommentMailService
+    public interface ICommentMailService
     {
         void CommentAdd(CommentMail comment);
         //void CategoryDelete(Comment comment);
