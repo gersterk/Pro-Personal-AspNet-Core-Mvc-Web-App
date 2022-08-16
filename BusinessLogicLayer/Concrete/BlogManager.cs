@@ -33,11 +33,7 @@ namespace BusinessLogicLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public List<Blog> GetBlogListByCategory()
-        {
-            return _blogDal.GetListByCategory();
-
-        }
+ 
 
         public Blog GetById(int id)
         {
@@ -54,5 +50,17 @@ namespace BusinessLogicLayer.Concrete
             return _blogDal.GetAllList();
 
         }
+
+        public List<Blog> GetBlogByWriter(int id)
+        {
+            return _blogDal.GetAllList(x => x.WriterId == id);
+        }
+
+        public List<Blog> GetBlogListByCategory()
+        {
+            return _blogDal.GetListByCategory();
+        }
+
+       
     }
 }

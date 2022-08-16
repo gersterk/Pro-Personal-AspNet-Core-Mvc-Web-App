@@ -19,5 +19,7 @@ namespace EntityLayer.Concrete
         public string WriterPassword { get; set; }
         public string WriterImage { get; set; }
         public bool IsActiveWriter { get; set; }
+
+        public List<Blog> Blogs { get; set; }
     }
 }

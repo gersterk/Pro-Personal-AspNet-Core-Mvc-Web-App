@@ -32,7 +32,10 @@ namespace EntityLayer.Concrete
         //to have this relationships on dataserver(sql) too, we should apply migration
 
         List<CommentMail> CommentMails { get; set; }
-      
 
+
+
+        public int WriterId { get; set; }
+        public Writer Writer { get; set; }
     }
 }
