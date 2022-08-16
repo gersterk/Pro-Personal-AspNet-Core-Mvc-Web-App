@@ -32,5 +32,6 @@ namespace DataAccessLayer.Concrete
         public DbSet<Writer> Writers { get; set; }
         public DbSet<Project> Projects { get; set; }
 
+        public DbSet <Newsletter> Newsletters{ get; set; }
     }
 }
