@@ -12,8 +12,6 @@ namespace ProPersonal.ViewComponents.Blog
         public IViewComponentResult Invoke()
         {
             var values = bm.GetBlogByWriter(1);
-
-
             return View(values);
 
 

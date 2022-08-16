@@ -8,6 +8,8 @@ namespace ProPersonal.Controllers
     public class NewsletterController : Controller
     {
         NewsletterManager nm = new NewsletterManager(new EfNewsletterRepository());
+       
+        
         [HttpGet]
         public PartialViewResult SubscribeMail()
         {
