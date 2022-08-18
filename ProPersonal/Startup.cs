@@ -28,8 +28,6 @@ namespace ProPersonal
         {
             services.AddControllersWithViews();
 
-            services.AddSession();
-
             services.AddMvc(config=>
             {
                 var policy = new AuthorizationPolicyBuilder()
@@ -67,6 +65,7 @@ namespace ProPersonal
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseAuthentication();
 
             app.UseSession();
             app.UseRouting();
