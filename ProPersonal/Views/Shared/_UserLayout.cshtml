@@ -1,8 +1,4 @@
 ﻿
-@{
-    Layout = null;
-}
-
 
 <!DOCTYPE html>
 <html lang="zxx">
@@ -43,19 +39,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 	@RenderBody()
-	<!--//main-->
-	<!--footer-->
-	@await Html.PartialAsync("_Footer")
-	<!---->
-@*
-	<!-- js -->
-	<script src="~/Theme/web/js/jquery-2.2.3.min.js"></script>
-	<!-- //js 
-	
-	<!-- //Custom-JavaScript-File-Links -->
-	<script src="~/Theme/web/js/bootstrap.js"></script>
 
-*@
+	@await Html.PartialAsync("_Footer")
+
 </body>
 
 </html>
