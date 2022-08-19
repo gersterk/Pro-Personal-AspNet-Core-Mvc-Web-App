@@ -18,9 +18,16 @@ namespace ProPersonal.Controllers
         }
 
         [AllowAnonymous]
-        public IActionResult Test()
+        public IActionResult WriterNavbarPartial()
         {
             return View();
+
+        }
+
+        [AllowAnonymous]
+        public PartialViewResult WriterFooterPartial()
+        {
+            return PartialView();
 
         }
     }
