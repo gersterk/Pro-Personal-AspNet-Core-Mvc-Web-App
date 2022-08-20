@@ -23,12 +23,12 @@ namespace BusinessLogicLayer.Concrete
             throw new NotImplementedException();
         } 
 
-        public Blog GetById(int id)
+        public Blog TGetById(int id)  //To avoid name confusing, Ive changed the name to T GetById
         {
-            throw new NotImplementedException();
+            return _blogDal.GetById(id);
         }
 
-        public List<Blog> GetBlogById(int id)
+        public List<Blog> TGetBlogById(int id)
         {
             return _blogDal.GetAllList(x =>x.BlogId==id);
         }
@@ -56,12 +56,14 @@ namespace BusinessLogicLayer.Concrete
 
         public void TDelete(Blog t)
         {
-            throw new NotImplementedException();
+            _blogDal.Delete(t);
+                
         }
 
         public void TUpdate(Blog t)
         {
-            throw new NotImplementedException();
+            _blogDal.Update(t);
+
         }
 
         public List<Blog> GetListByCategoryWithWriterBm(int id)

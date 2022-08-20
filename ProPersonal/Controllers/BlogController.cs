@@ -25,7 +25,7 @@ namespace ProPersonal.Controllers
         public IActionResult BlogReadAll(int id)
         {
             ViewBag.i = id;
-            var values = bm.GetBlogById(id);
+            var values = bm.TGetBlogById(id);
             return View(values);
         }
 
@@ -81,6 +81,15 @@ namespace ProPersonal.Controllers
                 }
             }
             return View();
+        }
+
+        public IActionResult DeleteBlog(int id)
+        {
+            var blogvalues = bm.TGetById(id);
+            bm.TDelete(blogvalues);
+
+            return RedirectToAction("BlogListByWriter");
+             
         }
 
     }
