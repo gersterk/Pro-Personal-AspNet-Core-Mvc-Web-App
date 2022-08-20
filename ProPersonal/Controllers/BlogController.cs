@@ -5,7 +5,10 @@ using EntityLayer.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ProPersonal.Controllers
 {
@@ -37,7 +40,20 @@ namespace ProPersonal.Controllers
         [HttpGet]
         public IActionResult BlogAddNew()
         {
+            CategoryManager cm = new CategoryManager(new EfCategoryRepository());
+
+            List<SelectListItem> categoryvalues = (from x in cm.GetList()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryId.ToString()
+                                                   }).ToList();
+           //this function lists the value comes from category by id to string and the name of it as kind of dropdown
+           ViewBag.cv = categoryvalues;
+
             return View();
+
+
         }
 
         [HttpPost]
