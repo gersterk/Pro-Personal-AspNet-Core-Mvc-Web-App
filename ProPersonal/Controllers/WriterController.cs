@@ -30,5 +30,10 @@ namespace ProPersonal.Controllers
             return PartialView();
 
         }
+        public IActionResult Test()
+        {
+            return View();
+
+        }
     }
 }
