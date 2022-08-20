@@ -21,5 +21,13 @@ namespace ProPersonal.Controllers
             var values  = bm.GetBlogById(id);
             return View(values);
         }
+
+        public IActionResult BlogListByWriter()
+        {
+            var values = bm.GetBlogByWriter(1);
+
+            return View(values);
+
+        }
     }
 }
