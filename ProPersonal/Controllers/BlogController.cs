@@ -31,7 +31,7 @@ namespace ProPersonal.Controllers
 
         public IActionResult BlogListByWriter()
         {
-            var values = bm.GetBlogByWriter(1);
+            var values = bm.GetListByCategoryWithWriterBm(1);
 
             return View(values);
 

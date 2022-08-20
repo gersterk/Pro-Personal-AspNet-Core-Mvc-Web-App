@@ -13,7 +13,7 @@
         <th>Publish Date</th>
         <th>Category</th>
         <th>Statu</th>
-        <th>Edit</th>
+        <th>Edit</th> 
         <th>Delete</th>
     </tr>
 
@@ -22,8 +22,8 @@
         <tr>
             <td>@item.BlogId</td>
             <td>@item.BlogName</td>
-            <td>@item.PublishDate</td>
-            <td>@item.CategoryId</td>
+            <td>@(((DateTime)item.PublishDate).ToString("dd MMM yyyy"))</td>
+            <td>@item.Category.CategoryName</td>
             <td>@item.IsActiveBlog</td>
             <td><a href="#" class="btn btn-warning">Edit</a></td>
 

@@ -63,5 +63,10 @@ namespace BusinessLogicLayer.Concrete
         {
             throw new NotImplementedException();
         }
+
+        public List<Blog> GetListByCategoryWithWriterBm(int id)
+        {
+            return _blogDal.GetListByCategoryWithWriter(id);
+        }
     }
 }
