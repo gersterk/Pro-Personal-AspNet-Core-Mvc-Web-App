@@ -25,7 +25,7 @@ namespace ProPersonal.Controllers
         public IActionResult BlogReadAll(int id)
         {
             ViewBag.i = id;
-            var values = bm.TGetBlogById(id);
+            var values = bm.GetBlogById(id);
             return View(values);
         }
 

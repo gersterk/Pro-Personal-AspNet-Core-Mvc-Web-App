@@ -20,7 +20,8 @@ namespace BusinessLogicLayer.Concrete
 
         public About TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _aboutDal.GetById(id);
+
         }
 
         public List<About> GetList()
