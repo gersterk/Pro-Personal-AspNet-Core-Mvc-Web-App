@@ -1,0 +1,66 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog> // List<Blog,Project>  Projects will be added to here lately with technical writings for technic section
+
+
+
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Last Posts</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th> Image </th>
+                                    <th> Name </th>
+                                    <th> Category </th>
+                                    <th> Publish Date </th>
+                                    <th> Details </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var item in Model)
+                            {
+                                    <tr>
+                                        <td>
+                                            <img src="@item.BlogImage" class="mr-2" alt="image"> 
+                                        </td>
+                                        <td> @item.BlogName</td>
+                                        <td>
+                                            <a href="/Category/Index/@item.CategoryId" class="badge badge-dark">@item.Category.CategoryName</a>
+                                        </td>
+                                        <td> @(((DateTime)item.PublishDate).ToString("dd-MMM-yyyy")) </td>
+                                        <td><a href ="/Blog/BlogReadAll/@item.BlogId" class="badge badge-dark">Details</a></td>
+                                    </tr>
+                            }
+                            
+                       
+
+                            @*
+                                  This area above will be for projest with almost this format and will indicate if the project is ongoing or accomplished
+
+
+                                @foreach(var item in Model)
+                                {
+                                <tr>
+                                <td>
+                                <img src="~/writer/assets/images/faces/face1.jpg" class="mr-2" alt="image"> @item.BlogName
+                                </td>
+                                <td> Fund is not recieved </td>
+                                <td>
+                                <label class="badge badge-gradient-success">DONE</label>
+                                </td>
+                                <td> @(((DateTime)item.PublishDate).ToString("dd-MMM-yyyy")) </td>
+                                <td> WD-12345 </td>
+                                </tr>
+                                }*@
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
