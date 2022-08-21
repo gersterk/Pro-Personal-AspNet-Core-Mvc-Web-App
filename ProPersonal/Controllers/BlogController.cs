@@ -16,6 +16,8 @@ namespace ProPersonal.Controllers
     public class BlogController : Controller
     {
         BlogManager bm = new BlogManager(new EfBlogRepository());
+        CategoryManager cm = new CategoryManager(new EfCategoryRepository());
+
         public IActionResult Index()
         {
             var values = bm.GetBlogListByCategory();
@@ -90,6 +92,63 @@ namespace ProPersonal.Controllers
 
             return RedirectToAction("BlogListByWriter");
              
+        }
+
+        [HttpGet]
+        public IActionResult EditBlog(int id)
+        {
+            var blogvalues = bm.TGetById(id);
+            
+
+            List<SelectListItem> categoryvalues = (from x in cm.GetList()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryId.ToString()
+                                                   }).ToList();
+            //this function lists the value comes from category by id to string and the name of it as kind of dropdown
+            ViewBag.cv = categoryvalues;
+
+            return View(blogvalues);
+
+        }
+
+        [HttpPost]
+        public IActionResult EditBlog(Blog p)
+        {
+            var blogvalue = bm.TGetById(p.BlogId);
+
+            p.WriterId = 1;
+            p.PublishDate = DateTime.Parse(blogvalue.PublishDate.ToShortDateString()); //keeps the publish date as it was 
+            p.IsActiveBlog = true;
+
+            bm.TUpdate(p);
+
+
+
+            //BlogValidator bv = new BlogValidator();
+            //ValidationResult validationResult = bv.Validate(p);
+
+            //if (validationResult.IsValid)
+            //{
+
+            //    p.IsActiveBlog = true;
+            //    p.PublishDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            //    bm.TUpdate(p);
+
+            //    return RedirectToAction("BlogListByWriter", "Blog");
+
+            //}
+            //else
+            //{
+            //    foreach (var item in validationResult.Errors)
+            //    {
+            //        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            //    }
+            //}
+        
+            return RedirectToAction("BlogListByWriter");
+
         }
 
     }
