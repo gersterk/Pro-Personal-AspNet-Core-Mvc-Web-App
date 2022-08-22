@@ -9,7 +9,5 @@ namespace BusinessLogicLayer.Abstract
 {
     public interface ICategoryService : IGenericService<Category>
     {
-        
-
     }
 }
