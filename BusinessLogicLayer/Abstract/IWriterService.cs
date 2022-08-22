@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Abstract
 {
-    public interface IWriterService
+    public interface IWriterService : IGenericService<Writer>
     {
-        void WriterAdd(Writer writer);
       
     }
 }

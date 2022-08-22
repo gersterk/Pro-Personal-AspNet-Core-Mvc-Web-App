@@ -31,7 +31,7 @@ namespace ProPersonal.Controllers
 
                 p.IsActiveWriter = true;
                 p.WriteAbout = "Deneme";
-                wm.WriterAdd(p);
+                wm.TAdd(p);
                 return RedirectToAction("Index", "Blog");
 
             }
