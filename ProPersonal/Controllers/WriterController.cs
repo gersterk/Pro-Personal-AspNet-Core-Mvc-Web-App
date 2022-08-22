@@ -5,6 +5,9 @@ using EntityLayer.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ProPersonal.Models;
+using System;
+using System.IO;
 
 namespace ProPersonal.Controllers
 {
@@ -69,6 +72,41 @@ namespace ProPersonal.Controllers
             }
             return View();
 
+        }
+        
+        [AllowAnonymous]
+        [HttpGet]       
+        public IActionResult WriterAdd()  //this methods is for adding images to the writer's profile... The name is missing...
+        {
+            return View();
+
+        }
+        [AllowAnonymous]
+        [HttpPost]
+        public IActionResult WriterAdd(AddProfileImage p)
+        {
+            Writer w = new Writer();
+
+            if (p.WriterImage != null)
+            {
+                //gets the path of the image
+                var extension = Path.GetExtension(p.WriterImage.FileName);
+                var newimagename = Guid.NewGuid() + extension; //name the file into the writer image folde with a guid and its name
+                var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/WriterImageFile/",newimagename);
+                var stream = new FileStream(location, FileMode.Create); //creats the full path
+                p.WriterImage.CopyTo(stream); //copies to it
+                w.WriterImage = newimagename;
+
+            }
+            w.WriterMail = p.WriterMail;
+            w.WriterName = p.WriterName;
+            w.WriterPassword = p.WriterPassword;
+            w.IsActiveWriter = true;
+            w.WriteAbout = p.WriteAbout;
+
+            wm.TAdd(w);
+            return RedirectToAction("Index", "Dashboard");
+            
         }
     }
 }
