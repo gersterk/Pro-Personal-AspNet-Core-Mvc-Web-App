@@ -22,6 +22,7 @@ namespace EntityLayer.Concrete
         //to my mail box with the title... I have no idea how to do that yet but I will figure it out
 
         public DateTime CommentDate { get; set; }
+        public int BlogRating { get; set; }
 
         public bool IsActiveComment { get; set; }
 

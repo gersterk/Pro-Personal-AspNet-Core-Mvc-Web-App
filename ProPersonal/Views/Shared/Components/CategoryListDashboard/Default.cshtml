@@ -1,4 +1,4 @@
-﻿@model List<Category>
+﻿@model List<Blog>
 
 <div class="row">
     <div class="col-md-12 grid-margin stretch-card">
@@ -17,15 +17,15 @@
                         </thead>
                         <tbody>
 
-                            @foreach (var item in Model)
+                            @foreach (var item in Model) 
                             {
 
 
 
                                 <tr>
-                                    <td> @item.CategoryId </td>
-                                    <td> @item.CategoryName </td>
-                                    <td> @item.IsActiveCategory </td>
+                                    <td> @item.BlogId </td>
+                                    <td> @item.BlogName </td>
+                                    <td> @item.IsActiveBlog </td>
                                     <td>
                                         <div class="progress">
                                             <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>

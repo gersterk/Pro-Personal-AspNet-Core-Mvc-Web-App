@@ -33,5 +33,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<Project> Projects { get; set; }
 
         public DbSet <Newsletter> Newsletters{ get; set; }
+        public DbSet <BlogRating> BlogRatings { get; set; }
+
     }
 }
