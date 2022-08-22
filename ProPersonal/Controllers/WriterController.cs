@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using BusinessLogicLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ProPersonal.Controllers
@@ -6,7 +8,8 @@ namespace ProPersonal.Controllers
   
     public class WriterController : Controller
     {
-        
+        WriterManager wm = new WriterManager(new EfWriterRepository());
+
         public IActionResult Index()
         {
             return View();
@@ -30,9 +33,13 @@ namespace ProPersonal.Controllers
             return PartialView();
 
         }
-        public IActionResult Test()
+
+        [AllowAnonymous]
+        public IActionResult WriterEditProfile()
         {
-            return View();
+            var writervalues = wm.TGetById(1);
+
+            return View(writervalues);
 
         }
     }
