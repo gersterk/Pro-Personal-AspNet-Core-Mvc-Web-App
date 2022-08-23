@@ -36,6 +36,8 @@ namespace ProPersonal.Controllers
 
         public PartialViewResult CommentListByBlog(int id)
         {
+            ViewBag.i = id;
+
             var values = cm.GetList(id);
             return PartialView(values);
 
