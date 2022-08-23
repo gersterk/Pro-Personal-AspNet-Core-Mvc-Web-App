@@ -12,5 +12,7 @@ namespace ProPersonal.ViewComponents.CommentComponents
             var values = cm.GetList(id);
             return View(values);
         }
+
+
     }
 }
