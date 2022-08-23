@@ -9,14 +9,14 @@ namespace ProPersonal.ViewComponents.CommentComponents
         //this component helps to bring the comments to the Writer dashboard
 
         CommentMailManager cm = new CommentMailManager(new EfCommentMailRepository());
-        BlogManager bm = new BlogManager(new EfBlogRepository());
 
 
 
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(int id)
         {
+            var values = cm.GetList(id);
 
-            return View();
+            return View(values);
         }
         
 
