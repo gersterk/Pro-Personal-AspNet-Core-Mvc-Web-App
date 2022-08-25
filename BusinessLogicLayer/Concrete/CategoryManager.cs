@@ -13,7 +13,7 @@ namespace BusinessLogicLayer.Concrete
 
         //EfCategoryRepository efCategory;
         //I give up on EfRepo because then I would be very much depend on it
-        //So I to go for Interfase
+        //So I to go for Interface
 
         ICategoryDal _categoryDal;
 
