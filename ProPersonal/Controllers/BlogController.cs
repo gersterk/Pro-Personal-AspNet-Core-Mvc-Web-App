@@ -1,5 +1,6 @@
 ﻿using BusinessLogicLayer.Concrete;
 using BusinessLogicLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -12,12 +13,11 @@ using System.Linq;
 
 namespace ProPersonal.Controllers
 {
-    [AllowAnonymous]
     public class BlogController : Controller
     {
         BlogManager bm = new BlogManager(new EfBlogRepository());
         CategoryManager cm = new CategoryManager(new EfCategoryRepository());
-
+        Context c = new Context();
         public IActionResult Index()
         {
             var values = bm.GetBlogListByCategory();
@@ -33,7 +33,11 @@ namespace ProPersonal.Controllers
 
         public IActionResult BlogListByWriter()
         {
-            var values = bm.GetListByCategoryWithWriterBm(1);
+           // i dont Know this is not very healty and doesnt abide to SOLID but Ive got no a better solution yet
+            //refactoring is coming
+            var userMail = User.Identity.Name;
+            var WriterId = c.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
+            var values = bm.GetListByCategoryWithWriterBm(WriterId);
 
             return View(values);
 
@@ -66,10 +70,12 @@ namespace ProPersonal.Controllers
             ValidationResult results = bv.Validate(p);
             if (results.IsValid)
             {
-
+                var userMail = User.Identity.Name;
+                var WriterId = c.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
                 p.IsActiveBlog = true;
                 p.PublishDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                p.WriterId = 1;
+                p.WriterId = WriterId;
+
                 bm.TAdd(p);
 
                 return RedirectToAction("BlogListByWriter", "Blog");
@@ -97,6 +103,8 @@ namespace ProPersonal.Controllers
         [HttpGet]
         public IActionResult EditBlog(int id)
         {
+
+
             var blogvalues = bm.TGetById(id);
             
 
@@ -116,9 +124,11 @@ namespace ProPersonal.Controllers
         [HttpPost]
         public IActionResult EditBlog(Blog p)
         {
+            var userMail = User.Identity.Name;
+            var WriterId = c.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
             var blogvalue = bm.TGetById(p.BlogId);
 
-            p.WriterId = 1;
+            p.WriterId = WriterId;
             p.PublishDate = DateTime.Parse(blogvalue.PublishDate.ToShortDateString()); //keeps the publish date as it was 
             p.IsActiveBlog = true;
 
