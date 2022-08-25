@@ -1,5 +1,6 @@
 ﻿using BusinessLogicLayer.Concrete;
 using BusinessLogicLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using ProPersonal.Models;
 using System;
 using System.IO;
+using System.Linq;
 
 namespace ProPersonal.Controllers
 {
@@ -16,8 +18,19 @@ namespace ProPersonal.Controllers
     {
         WriterManager wm = new WriterManager(new EfWriterRepository());
 
+        [Authorize]
         public IActionResult Index()
         {
+            var usermail = User.Identity.Name; //brings the current user's details like username or email
+            //User.Identity comes from Claims Principals Class from IPrincipal
+            ViewBag.v1 = usermail;
+
+            Context c = new Context();
+            var writerName = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterName).FirstOrDefault();
+            ViewBag.v2 = writerName;
+
+
+
             return View();
         }
 
