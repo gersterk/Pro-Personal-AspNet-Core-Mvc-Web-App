@@ -56,5 +56,13 @@ namespace ProPersonal.Areas.Admin.Controllers
             return View();
 
         }
+
+        public IActionResult DeleteCategory(int id)
+        {
+            var values = cm.TGetById(id);
+            cm.TDelete(values);
+            return RedirectToAction("Index");
+
+        }
     }
 }
