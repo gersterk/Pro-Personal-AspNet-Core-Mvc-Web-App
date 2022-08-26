@@ -65,13 +65,16 @@ namespace ProPersonal.Controllers
         [HttpPost]
         public IActionResult BlogAddNew(Blog p)
         {
+            var userMail = User.Identity.Name;
+            var WriterId = c.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
 
             BlogValidator bv = new BlogValidator();
             ValidationResult results = bv.Validate(p);
+
+
             if (results.IsValid)
             {
-                var userMail = User.Identity.Name;
-                var WriterId = c.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
+               
                 p.IsActiveBlog = true;
                 p.PublishDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 p.WriterId = WriterId;
