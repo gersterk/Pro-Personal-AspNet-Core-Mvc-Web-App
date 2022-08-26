@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "BlogListExcel";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>BlogListExcel</h1>
+<br />
+
+
+<a href="/Admin/Blog/ExportStaticExcelBlogList" class="btn btn-primary">Download the Excel file</a>
+
+
+
+@*I DONT KNOW WHY THIS DIDNT WORKED FOR ME*@
+
+
+@*<button class="btn btn-primary" onclick="DownloadExcelBlogList">Download the Excel file</button>
+*@@*
+
+<script>
+function DownloadExcelBlogList() {
+    wind.open("/Admin/Blog/ExportStaticExcelBlogList")
+}
+</script>
+*@
