@@ -8,35 +8,66 @@
 <br />
 
 <button type="button" id="btngetlist" class="btn btn-outline-primary">Writer List</button>
+<button type="button" id="btngetbyid" class="btn btn-outline-success">Bring Writer</button>
 <br />
 
 <div id="writerlist">
     Writers will come here
 </div>
+
+<div id="getwriter">
+    Buraya bir adet yazar gelecektri
+</div>
+<br />
+
+<div>
+    <input type="text" id="writerid" placeholder="Input the Writer's ID" " class="form-control" />
+</div>
+<br>
+
 @section scripts{
-    <script>
-        $("btngetlist").click(function() {
-            $.ajax({
-                contentType: "application/json",
-                dataType: "json",
-                type: "Get",
-                url:"/Admin/Writer/WriterList/",
-                success: function(func) {
-                    let w = jQuery.parseJSON(func);
+<script>
+    $("#btngetlist").click(function() {
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "Get",
+            url: "/Admin/Writer/WriterList/",
+            success: function(func) {
+                let w = jQuery.parseJSON(func);
 
-                    console.log(w);
+                console.log(w);
 
-                    let tablehtml = "<table class=table table-bordere> <tr> <th> Writer Id </th> <th> Writer Name </th> </tr>"
+                let tablehtml = "<table class=table table-bordered> <tr> <th> Writer Id </th> <th> Writer Name </th> </tr>"
 
-                    $.each(w, (index, value) => {
-                        tablehtml += `<tr><td>${value.Id}</td> <td>${value.Name}</td></td>`
-                    });
+                $.each(w, (index, value) => {
+                    tablehtml += `<tr><td>${value.Id}</td> <td>${value.Name}</td></td>`
+                });
 
-                    tablehtml += "</table>";
-                    $("writerlist".html(tablehtml));
+                tablehtml += "</table>";
+                $("#writerlist").html(tablehtml);
 
-                }
-            });
+            }
         });
-    </script>
+    });
+
+    $("#btngetbyid").click(x => {
+        let id = $("#writerid").val();
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "get",
+            url: "/Admin/Writer/GetWriterById/",
+            data: { writerid: id },
+            success: function(func) {
+                let w = jQuery.parseJSON(func);
+
+                console.log(w);
+
+            }
+        });
+  
+
+    });
+</script>
 }

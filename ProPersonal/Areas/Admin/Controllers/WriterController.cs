@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using ProPersonal.Areas.Admin.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ProPersonal.Areas.Admin.Controllers
 {
@@ -17,6 +18,13 @@ namespace ProPersonal.Areas.Admin.Controllers
         {
             var jsonWriters = JsonConvert.SerializeObject(writers);
             return Json(jsonWriters);
+        }
+        public IActionResult GetWriterById(int writerId)
+        {
+            var findWriter = writers.FirstOrDefault(x=>x.Id== writerId);  
+            var jsonWriters = JsonConvert.SerializeObject(findWriter);
+            return Json(jsonWriters);
+
         }
 
         public static List<WriterModel> writers = new List<WriterModel>
