@@ -19,6 +19,23 @@ namespace ProPersonal.Areas.Admin.Controllers
             var jsonWriters = JsonConvert.SerializeObject(writers);
             return Json(jsonWriters);
         }
+        [HttpPost]
+        public IActionResult AddWriter(WriterModel w)
+        {
+            writers.Add(w);
+            var jsonWriters = JsonConvert.SerializeObject(w);
+            return Json(jsonWriters);
+
+
+        }
+
+        public IActionResult DeleteWriter(int id)
+        {
+            var writer = writers.FirstOrDefault(x => x.Id == id);
+            writers.Remove(writer);
+            return Json(writer);
+
+        }
         public IActionResult GetWriterById(int writerId)
         {
             var findWriter = writers.FirstOrDefault(x=>x.Id== writerId);  
@@ -27,6 +44,15 @@ namespace ProPersonal.Areas.Admin.Controllers
 
         }
 
+
+        public IActionResult UpdateWriter(WriterModel w)
+        {
+            var writer = writers.FirstOrDefault(x => x.Id == w.Id);
+            writer.Name = w.Name;
+            var jsonWriter = JsonConvert.SerializeObject(w);
+            return Json(jsonWriter);
+
+        }
         public static List<WriterModel> writers = new List<WriterModel>
         {
             new WriterModel
