@@ -34,6 +34,7 @@ namespace DataAccessLayer.Concrete
 
         public DbSet <Newsletter> Newsletters{ get; set; }
         public DbSet <Notification> Notifications{ get; set; }
-
+        
+        public DbSet<Admin> Admins { get; set; }
     }
 }
