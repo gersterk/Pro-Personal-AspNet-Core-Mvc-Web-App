@@ -12,11 +12,11 @@
 <br />
 
 <div id="writerlist">
-    Writers will come here
+
 </div>
 
 <div id="getwriter">
-    Buraya bir adet yazar gelecektri
+
 </div>
 <br />
 
@@ -64,9 +64,11 @@
 
                 console.log(w);
 
+                let getvalue = `<table class=table table-bordered> <tr> <th>Writer Id</th> <th> Writer Name </th></tr>   <tr><td>${w.Id} </td> <td>${w.Name} </td></tr></table>`;
+                $("#getwriter").html(getvalue);
             }
         });
-  
+
 
     });
 </script>
