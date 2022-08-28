@@ -1,11 +1,13 @@
 ﻿using BusinessLogicLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
 namespace ProPersonal.Controllers
 {
+    [AllowAnonymous]
     public class CommentMailController : Controller
     {
         CommentMailManager cm = new CommentMailManager(new EfCommentMailRepository());
