@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace DataAccessLayer.Concrete
 
     //contexts are inheriting from DbContext class that EnityFramework Core library prodives
     
-    public class Context : DbContext
+    public class Context : IdentityDbContext<AppUser>   //IdentityDbContext Inherits from DbContext... If will use Identity, I have to change to IdentityDbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {   
@@ -21,7 +22,15 @@ namespace DataAccessLayer.Concrete
             optionsBuilder.UseSqlServer("server = DESKTOP-TLTN1FO;database = ProPersonalDb; integrated security=true");
 
 
+            //If migration gets a modelcreating error, then
+
+            ///base.OnModelCreating(modelBuilder)
+
+
         }
+
+
+
         //to use these entities in the tables 
         //DbSet will be easily used whenever we add a new entity to use
         public DbSet<About> Abouts { get; set; }
