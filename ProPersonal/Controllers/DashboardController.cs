@@ -12,8 +12,8 @@ namespace ProPersonal.Controllers
             Context c = new Context();
 
             var userMail = User.Identity.Name;
-            var WriterId = c.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
-            ViewBag.blogCount = c.Blogs.Where(x=>x.WriterId==WriterId).Count().ToString();
+            var WriterIdentity = c.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
+            ViewBag.blogCount = c.Blogs.Where(x=>x.WriterId==WriterIdentity).Count().ToString();
 
             return View();
         }

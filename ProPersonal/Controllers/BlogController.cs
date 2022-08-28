@@ -35,11 +35,12 @@ namespace ProPersonal.Controllers
 
         public IActionResult BlogListByWriter()
         {
-           // i dont Know this is not very healty and doesnt abide to SOLID but Ive got no a better solution yet
-            //refactoring is coming
-            var userMail = User.Identity.Name;
-            var WriterId = c.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
-            var values = bm.GetListByCategoryWithWriterBm(WriterId);
+ 
+            var userName = User.Identity.Name;
+
+            var userMail = c.Users.Where(x => x.UserName == userName).Select(y => y.Email).FirstOrDefault();
+            var WriterIdentity = c.Writers.Where(x => x.WriterMail == userName).Select(y => y.WriterId).FirstOrDefault();
+            var values = bm.GetListByCategoryWithWriterBm(WriterIdentity);
 
             return View(values);
 
@@ -67,8 +68,9 @@ namespace ProPersonal.Controllers
         [HttpPost]
         public IActionResult BlogAddNew(Blog p)
         {
-            var userMail = User.Identity.Name;
-            var WriterId = c.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
+            var userName = User.Identity.Name;
+            var userMail = c.Users.Where(x => x.UserName == userName).Select(y => y.Email).FirstOrDefault();
+            var WriterIdentity = c.Writers.Where(x => x.WriterMail == userName).Select(y => y.WriterId).FirstOrDefault();
 
             BlogValidator bv = new BlogValidator();
             ValidationResult results = bv.Validate(p);
@@ -79,7 +81,7 @@ namespace ProPersonal.Controllers
                
                 p.IsActiveBlog = true;
                 p.PublishDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                p.WriterId = WriterId;
+                p.WriterId = WriterIdentity;
 
                 bm.TAdd(p);
 
@@ -129,39 +131,18 @@ namespace ProPersonal.Controllers
         [HttpPost]
         public IActionResult EditBlog(Blog p)
         {
-            var userMail = User.Identity.Name;
-            var WriterId = c.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
+            var userName = User.Identity.Name;
+            var userMail = c.Users.Where(x => x.UserName == userName).Select(y => y.Email).FirstOrDefault();
+            var WriterIdentity = c.Writers.Where(x => x.WriterMail == userName).Select(y => y.WriterId).FirstOrDefault();
+
             var blogvalue = bm.TGetById(p.BlogId);
 
-            p.WriterId = WriterId;
+            p.WriterId = WriterIdentity;
             p.PublishDate = DateTime.Parse(blogvalue.PublishDate.ToShortDateString()); //keeps the publish date as it was 
             p.IsActiveBlog = true;
 
             bm.TUpdate(p);
 
-
-
-            //BlogValidator bv = new BlogValidator();
-            //ValidationResult validationResult = bv.Validate(p);
-
-            //if (validationResult.IsValid)
-            //{
-
-            //    p.IsActiveBlog = true;
-            //    p.PublishDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            //    bm.TUpdate(p);
-
-            //    return RedirectToAction("BlogListByWriter", "Blog");
-
-            //}
-            //else
-            //{
-            //    foreach (var item in validationResult.Errors)
-            //    {
-            //        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
-            //    }
-            //}
-        
             return RedirectToAction("BlogListByWriter");
 
         }
