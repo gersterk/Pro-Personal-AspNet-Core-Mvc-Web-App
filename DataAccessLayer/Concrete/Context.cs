@@ -13,7 +13,7 @@ namespace DataAccessLayer.Concrete
 
     //contexts are inheriting from DbContext class that EnityFramework Core library prodives
     
-    public class Context : IdentityDbContext<AppUser>   //IdentityDbContext Inherits from DbContext... If will use Identity, I have to change to IdentityDbContext
+    public class Context : IdentityDbContext<AppUser, AppRole, int>  //IdentityDbContext Inherits from DbContext... If will use Identity, I have to change to IdentityDbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {   
