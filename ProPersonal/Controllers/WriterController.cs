@@ -24,10 +24,12 @@ namespace ProPersonal.Controllers
 
         private readonly UserManager<AppUser> _userManager;
 
+
         public WriterController(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
         }
+
 
         [Authorize]
         public IActionResult Index()
@@ -45,10 +47,14 @@ namespace ProPersonal.Controllers
             return View();
         }
 
+
+
         public IActionResult WriterProfile()
         {
             return View();
         }
+
+
 
         [AllowAnonymous]
         public IActionResult WriterNavbarPartial()
@@ -57,12 +63,16 @@ namespace ProPersonal.Controllers
 
         }
 
+
+
         [AllowAnonymous]
         public PartialViewResult WriterFooterPartial()
         {
             return PartialView();
 
         }
+
+
 
         [HttpGet]
         public async Task<IActionResult> WriterEditProfile()
@@ -87,12 +97,14 @@ namespace ProPersonal.Controllers
             values.UserName = model.username;
             values.ImageUrl = model.imageurl;
             values.Email = model.mail;
+            values.PasswordHash = _userManager.PasswordHasher.HashPassword(values, model.password);
             var result = await _userManager.UpdateAsync(values);
             return RedirectToAction("index", "Dashboard");
 
-
         }
         
+
+
         [AllowAnonymous]
         [HttpGet]       
         public IActionResult WriterAdd()  //this methods is for adding images to the writer's profile... The name is missing...
@@ -127,5 +139,6 @@ namespace ProPersonal.Controllers
             return RedirectToAction("Index", "Dashboard");
             
         }
+
     }
 }
