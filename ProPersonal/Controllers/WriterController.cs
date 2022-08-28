@@ -5,11 +5,13 @@ using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ProPersonal.Models;
 using System;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ProPersonal.Controllers
 {
@@ -17,6 +19,15 @@ namespace ProPersonal.Controllers
     public class WriterController : Controller
     {
         WriterManager wm = new WriterManager(new EfWriterRepository());
+        UserManager userManager = new UserManager(new EfUserRepository());
+
+
+        private readonly UserManager<AppUser> _userManager;
+
+        public WriterController(UserManager<AppUser> userManager)
+        {
+            _userManager = userManager;
+        }
 
         [Authorize]
         public IActionResult Index()
@@ -54,39 +65,31 @@ namespace ProPersonal.Controllers
         }
 
         [HttpGet]
-        public IActionResult WriterEditProfile()
+        public async Task<IActionResult> WriterEditProfile()
         {
-            Context c = new Context();  
-            var userName = User.Identity.Name;
-            var userMail = c.Users.Where(x=>x.UserName == userName).Select(x=>x.Email).FirstOrDefault();
-            var WriterId = c.Writers.Where(x=>x.WriterMail==userMail).Select(y => y.WriterId).FirstOrDefault();
-            var writervalues = wm.TGetById(WriterId);
-            return View(writervalues);
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            UserUpdateModel model = new UserUpdateModel();
 
+            model.mail = values.Email;
+            model.namesurname = values.NameSurname;
+            model.username = values.UserName;
+            model.imageurl = values.ImageUrl;
+            
+
+            return View(model);
         }
    
         [HttpPost]
-        public IActionResult WriterEditProfile(Writer p)
+        public async Task <IActionResult> WriterEditProfile(UserUpdateModel model)
         {
-            WriterValidations wl = new WriterValidations();
-            ValidationResult result = wl.Validate(p);
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            values.NameSurname = model.namesurname;
+            values.UserName = model.username;
+            values.ImageUrl = model.imageurl;
+            values.Email = model.mail;
+            var result = await _userManager.UpdateAsync(values);
+            return RedirectToAction("index", "Dashboard");
 
-            if (result.IsValid)
-            {
-                wm.TUpdate(p);
-                return RedirectToAction("Index", "Dashboard");            
-            }
-
-
-            else
-            {
-                foreach (var item in result.Errors)
-                {
-                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
-
-                }
-            }
-            return View();
 
         }
         

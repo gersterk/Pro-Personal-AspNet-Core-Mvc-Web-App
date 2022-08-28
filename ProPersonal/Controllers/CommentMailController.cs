@@ -31,7 +31,7 @@ namespace ProPersonal.Controllers
             p.IsActiveComment = true;
             p.BlogId = 6;
             cm.CommentAdd(p);
-                                        //THERES SOMETHING WRONG WITH HERE AND IDK WHAT :D CODESMELL
+                                        //THERES SOMETHING WRONG WITH HERE AND IDK WHAT :D CODE SMELL
             return RedirectToAction("BlogReadAll", "Blog");
 
         }
