@@ -1,7 +1,9 @@
 ﻿using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using ProPersonal.Areas.Admin.Models;
 using ProPersonal.Models;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,10 +13,12 @@ namespace ProPersonal.Areas.Admin.Controllers
     public class AdminRoleController : Controller
     {
         private readonly RoleManager<AppRole> _roleManager;
+        private readonly UserManager<AppUser> _userManager;
 
-        public AdminRoleController(RoleManager<AppRole> roleManager)
+        public AdminRoleController(RoleManager<AppRole> roleManager, UserManager<AppUser> userManager)
         {
             _roleManager = roleManager;
+            _userManager = userManager;
         }
 
         //RoleManager comes from Aspnetcore Identity
@@ -105,6 +109,35 @@ namespace ProPersonal.Areas.Admin.Controllers
             return View();
                 
 
+        }
+        public IActionResult UserRoleList()
+        {
+            var values = _userManager.Users.ToList();   
+
+            return View(values);
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> AssignRole(int id)
+        {
+            var users = _userManager.Users.FirstOrDefault(x => x.Id == id);
+            var roles = _roleManager.Roles.ToList();
+            TempData["Userid"] = users.Id;
+            var userRoles = await _userManager.GetRolesAsync(users);
+
+            List<AssignRoleModel> model = new List<AssignRoleModel>();
+
+            foreach(var item in roles)
+            {
+                AssignRoleModel m = new AssignRoleModel();
+                m.RoleId = item.Id;
+                m.RoleName = item.Name;
+                m.Exists = userRoles.Contains(item.Name);
+                model.Add(m);   
+
+            }
+            return View(model);
         }
     }
 }

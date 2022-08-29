@@ -1,0 +1,24 @@
+﻿
+@model List<AssignRoleModel>
+@{
+    ViewData["Title"] = "AssignRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Assign Role</h1>
+
+<form>
+    @for (int i=0; i<Model.Count; i++)
+    { 
+        <div class="form-check">
+            <input type="hidden" asp-for="@Model[i].RoleId"/>
+            <input type="hidden" asp-for="@Model[i].RoleName"/>
+            <input type="checkbox" asp-for="@Model[i].Exists" class="form-check-input"/>
+            <lable class="form-check-label" for="@Model[i].Exists">@Model[i].RoleName</lable>
+
+        </div>  
+    }
+   <button class="btn btn-info">Save Changes</button>
+</form>
+
+ <a href="/Admin/AdminRole/UserRoleList/" class="btn btn-primary">User List</a>
