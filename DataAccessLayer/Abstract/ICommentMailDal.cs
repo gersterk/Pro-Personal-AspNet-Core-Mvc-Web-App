@@ -9,5 +9,7 @@ namespace DataAccessLayer.Abstract
 {
     public interface ICommentMailDal : IGenericDal<CommentMail>
     {
+        List<CommentMail> GetListByBlog();
+
     }
 }

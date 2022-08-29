@@ -15,5 +15,8 @@ namespace BusinessLogicLayer.Abstract
 
         List<CommentMail> GetList(int id);
         //CommentMail GetById(int id);
+
+        List<CommentMail> GetCommentsByBlog();
+
     }
 }
