@@ -61,6 +61,8 @@ namespace Jwt_Pro_Personal
             }
 
             app.UseRouting();
+            app.UseAuthentication();
+
 
             app.UseAuthorization();
 
