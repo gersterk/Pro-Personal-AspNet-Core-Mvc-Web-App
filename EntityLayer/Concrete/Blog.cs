@@ -34,8 +34,10 @@ namespace EntityLayer.Concrete
         List<CommentMail> CommentMails { get; set; }
 
 
-
         public int WriterId { get; set; }
         public Writer Writer { get; set; }
+
+
+
     }
 }

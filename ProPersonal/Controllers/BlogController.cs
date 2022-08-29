@@ -49,7 +49,6 @@ namespace ProPersonal.Controllers
         [HttpGet]
         public IActionResult BlogAddNew()
         {
-            CategoryManager cm = new CategoryManager(new EfCategoryRepository());
 
             List<SelectListItem> categoryvalues = (from x in cm.GetList()
                                                    select new SelectListItem
@@ -82,7 +81,6 @@ namespace ProPersonal.Controllers
                 p.IsActiveBlog = true;
                 p.PublishDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 p.WriterId = WriterIdentity;
-
                 bm.TAdd(p);
 
                 return RedirectToAction("BlogListByWriter", "Blog");
