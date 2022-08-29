@@ -56,5 +56,11 @@ namespace ProPersonal.Controllers
             return RedirectToAction("Index", "Login" );   
         }
 
+        public IActionResult AccessDenied()
+        {
+            return View();
+
+        }
+
     }
 }
