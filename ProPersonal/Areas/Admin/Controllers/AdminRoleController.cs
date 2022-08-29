@@ -60,5 +60,51 @@ namespace ProPersonal.Areas.Admin.Controllers
             return View(roleModel);
 
         }
+
+        [HttpGet]
+        public IActionResult UpdateRole(int id)
+        {
+            var values = _roleManager.Roles.FirstOrDefault(x=>x.Id==id);
+            RoleUpdateModel model = new RoleUpdateModel
+            {
+                Id = values.Id,
+                name = values.Name,
+            };
+            return View(model);
+
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateRole(RoleUpdateModel roleUpdateModel)
+        {
+            var values = _roleManager.Roles.Where(x => x.Id == roleUpdateModel.Id).FirstOrDefault();
+
+            values.Name = roleUpdateModel.name;
+            
+            var results = await _roleManager.UpdateAsync(values);
+
+            if (results.Succeeded)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(roleUpdateModel);
+
+
+        }
+
+        public async Task<IActionResult> DeleteRole(int id)
+        {
+            var values = _roleManager.Roles.FirstOrDefault(x => x.Id == id);
+            var result = await _roleManager.DeleteAsync(values);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index");
+
+            }
+            return View();
+                
+
+        }
     }
 }
