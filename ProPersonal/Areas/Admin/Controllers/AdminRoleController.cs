@@ -123,7 +123,7 @@ namespace ProPersonal.Areas.Admin.Controllers
         {
             var users = _userManager.Users.FirstOrDefault(x => x.Id == id);
             var roles = _roleManager.Roles.ToList();
-            TempData["Userid"] = users.Id;
+            TempData["UserId"] = users.Id;
             var userRoles = await _userManager.GetRolesAsync(users);
 
             List<AssignRoleModel> model = new List<AssignRoleModel>();
@@ -138,6 +138,29 @@ namespace ProPersonal.Areas.Admin.Controllers
 
             }
             return View(model);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> AssignRole(List<AssignRoleModel> model)
+        {
+            var userId = (int)TempData["UserId"];
+            var user = _userManager.Users.FirstOrDefault(x => x.Id ==userId);
+
+            foreach(var item in model)
+            {
+                if (item.Exists)
+                {
+                    await _userManager.AddToRoleAsync(user, item.RoleName);
+
+                }
+                else
+                {
+                    await _userManager.RemoveFromRoleAsync(user, item.RoleName);
+
+                }
+            }
+            return RedirectToAction("UserRoleList");
         }
     }
 }
