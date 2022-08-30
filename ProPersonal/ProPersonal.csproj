@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\Theme\web\js\darktheme.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\Theme\web\about.html" />
     <None Include="wwwroot\Theme\web\blog1.html" />
     <None Include="wwwroot\Theme\web\blog2.html" />
@@ -53,6 +57,7 @@
     <None Include="wwwroot\Theme\web\js\jquery.desoslide.js" />
     <None Include="wwwroot\Theme\web\js\jquery.flexisel.js" />
     <None Include="wwwroot\Theme\web\js\modernizr.custom.min.js" />
+    <None Include="wwwroot\Theme\web\js\darktheme.js" />
     <None Include="wwwroot\Theme\web\js\move-top.js" />
     <None Include="wwwroot\Theme\web\login.html" />
     <None Include="wwwroot\Theme\web\register.html" />

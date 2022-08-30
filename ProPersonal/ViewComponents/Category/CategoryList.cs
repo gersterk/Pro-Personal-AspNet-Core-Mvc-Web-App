@@ -1,6 +1,7 @@
 ﻿using BusinessLogicLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace ProPersonal.ViewComponents.Category
 {
@@ -12,6 +13,14 @@ namespace ProPersonal.ViewComponents.Category
         {
             var values = cm.GetList();
             return View(values);  
+        }
+
+        public IViewComponentResult CategoryListCount()
+        {
+            var count = cm.GetList().Count();
+            ViewBag.categoryCount = count;
+
+            return View(count);
         }
     }
 }
