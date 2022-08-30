@@ -176,18 +176,22 @@ ul.social_list1 li a:hover{
     transition: transform 2s;
 }
 .facebook1 {
-	background: #3b5998;
+	background: #000000;
+	/*#3b5998*/
 }
 
 .twitter2 {
-	background: #1da1f2;
+	background: #000000;
+	/*#1da1f2*/
 }
 
 .dribble3 {
-	background: #ea4c89;
+	background:#000000;
+	/*#ea4c89*/
 }
 .pin {
-	background: #BD081C;
+	background: #000000;
+	/*#BD081C*/
 }
 /*-- top-bar_sub_w3layouts --*/
 
