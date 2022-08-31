@@ -47,7 +47,7 @@ namespace ProPersonal.Controllers
         [HttpGet]
         public IActionResult ProjectEdit(int id)
         {
-           var projectValues = pm.GetProjectByIdb(id);
+           var projectValues = pm.TGetById(id);
             return View(projectValues);
 
         }
@@ -55,19 +55,20 @@ namespace ProPersonal.Controllers
         [HttpPost]
         public IActionResult ProjectEdit(Project p)
         {
-            var projectUpdateTime = pm.TGetById(p.ProjectId);
-            p.ProjectPublishDate = DateTime.Parse(projectUpdateTime.ProjectPublishDate.ToShortDateString());
+           
+            //var projectUpdateTime = pm.TGetById(p.ProjectId);
+            //p.ProjectPublishDate = DateTime.Parse(projectUpdateTime.ProjectPublishDate.ToShortDateString());
             p.IsActiveProject =true;
             pm.TUpdate(p);  
 
-            return RedirectToAction("Index");
+            return RedirectToAction("ProjectListAll");
 
         }
 
         public IActionResult ProjectListAll()
         {
             var values = pm.GetList();
-            return View();
+            return View(values);
         }
     }
 }

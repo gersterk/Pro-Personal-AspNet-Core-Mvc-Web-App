@@ -31,12 +31,14 @@ namespace BusinessLogicLayer.Concrete
 
         public void TDelete(Project t)
         {
-            throw new NotImplementedException();
+            _projectDal.Delete(t);
+
         }
 
         public Project TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _projectDal.GetById(id);
+
         }
 
         public void TUpdate(Project t)
