@@ -13,7 +13,7 @@ namespace EntityLayer.Concrete
         public int ProjectId { get; set; }
         public string ProjectName { get; set; }
         public string ProjectDescription { get; set; }
-        public string ProjectContenct { get; set; }
+        public string ProjectContenct { get; set; } //content :(
         public DateTime ProjectPublishDate { get; set; }
 
         public string ProjectImage { get; set; } //Main

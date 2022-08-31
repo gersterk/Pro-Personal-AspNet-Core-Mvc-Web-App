@@ -1,5 +1,6 @@
 ﻿@using EntityLayer.Concrete
-@model List<Blog>
+@model List<Project>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -17,8 +18,8 @@
                     {
 
                         <div class="col-lg-4 card">
-                            <a href="/Blog/BlogReadAll/@item.BlogId/">
-                                <img src="@item.BlogThumnailImage" class="card-img-top img-fluid" alt="">
+                            <a href="/Blog/BlogReadAll/@item.ProjectId/">
+                                <img src="@item.ProjectImage" class="card-img-top img-fluid" alt="">
                             </a>
 
 
@@ -26,16 +27,16 @@
                                 <ul class="blog-icons my-4">
                                     <li>
                                         <a href="#">
-                                            <i class="far fa-calendar-alt"></i> @(((DateTime)item.PublishDate).ToString("dd MMM yyyy"))
+                                            <i class="far fa-calendar-alt"></i> @(((DateTime)item.ProjectPublishDate).ToString("dd MMM yyyy"))
                                         </a>
                                     </li>
 
                                 </ul>
                                 <h5 class="card-title">
-                                    <a href="/Blog/BlogReadAll/@item.BlogId/">@item.BlogName</a>
+                                    <a href="/Blog/BlogReadAll/@item.ProjectId/">@item.ProjectName</a>
                                 </h5>
-                                <p class="card-text mb-3"> @item.BlogContent.Substring(0,item.BlogContent.Substring(0,130).LastIndexOf(" "))...</p>
-                                <a href="/Blog/BlogReadAll/@item.BlogId/" class="btn btn-primary read-m">Read More</a>
+                                <p class="card-text mb-3"> @item.ProjectContenct.Substring(0,item.ProjectContenct.Substring(0,130).LastIndexOf(" "))...</p>
+                                <a href="/Blog/BlogReadAll/@item.ProjectId/" class="btn btn-primary read-m">Read More</a>
                             </div>
 
                         </div>
@@ -49,3 +50,4 @@
         </div>
     </div>
 </section>
+
