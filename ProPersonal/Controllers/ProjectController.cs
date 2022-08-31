@@ -1,7 +1,9 @@
 ﻿using BusinessLogicLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace ProPersonal.Controllers
 {
@@ -24,6 +26,22 @@ namespace ProPersonal.Controllers
 
             return View(values);
 
+        }
+        [HttpGet]
+        public IActionResult ProjectAddNew()
+        {
+            return View();
+
+        }
+
+        [HttpPost]
+        public IActionResult ProjectAddNew(Project p)
+        {
+            p.IsActiveProject = true;
+            p.ProjectPublishDate = DateTime.Parse(DateTime.Now.ToLongDateString());
+            pm.TAdd(p);
+            // would be usefull If add ongoing or accomplished stuffs...
+            return RedirectToAction("Index", "Project");
         }
     }
 }

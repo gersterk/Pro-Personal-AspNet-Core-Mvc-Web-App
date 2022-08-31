@@ -20,8 +20,8 @@
 
 
 
-    @Html.Label("Blog Category")
-    @Html.DropDownListFor(x=>x.CategoryId,(IEnumerable<SelectListItem>)ViewBag.cv, new {@class="form-control"})
+    @Html.Label("Category")
+    @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.cv, new {@class="form-control"})
     //List<SelectListItem is not working here but IEnumerable works... worth to learn why
    
     <br />
@@ -30,14 +30,14 @@
 
 
 
-    @Html.Label("Blog Image")
+    @Html.Label("Image")
     @Html.TextBoxFor(x=>x.BlogImage, new{ @class="form-control"})
     @Html.ValidationMessageFor(x=>x.BlogImage)
 
      <br />
      <br />
 
-    @Html.Label("Blog Thumbnail")
+    @Html.Label("Thumbnail")
     @Html.TextBoxFor(x=>x.BlogThumnailImage, new{ @class="form-control"})
 
     
@@ -46,7 +46,7 @@
 
       
 
-    @Html.Label("Blog Content")
+    @Html.Label("Content")
     @Html.TextAreaFor(x=>x.BlogContent,10,15, new{ @class="form-control"})
     @Html.ValidationMessageFor(x=>x.BlogContent)
    

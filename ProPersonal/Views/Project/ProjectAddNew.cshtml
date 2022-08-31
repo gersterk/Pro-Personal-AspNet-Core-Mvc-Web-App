@@ -1,0 +1,63 @@
+﻿@model EntityLayer.Concrete.Project
+@{
+    ViewData["Title"] = "ProjectAddNew";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h3>Start a project</h3>
+
+<br />
+<br />
+
+
+@using (Html.BeginForm("BlogAddNew", "Blog", FormMethod.Post))
+{
+
+    @Html.Label("Project Name")
+    @Html.TextBoxFor(x=>x.ProjectName, new{ @class="form-control"})
+
+    <br />
+    <br />
+
+    @Html.Label("Project Description")
+    @Html.TextAreaFor(x=>x.ProjectDescription,6,15, new{ @class="form-control"})
+
+    <br />
+    <br />
+
+
+    @Html.Label("Project Image")
+    //Main Image
+    @Html.TextBoxFor(x=>x.ProjectImage, new{ @class="form-control"})
+
+    <br />
+    <br />
+    @Html.Label("Image-2")
+    @Html.TextBoxFor(x=>x.ProjectImage2, new{ @class="form-control"})
+
+    <br />
+    <br />
+
+    @Html.Label("Image-3")
+    @Html.TextBoxFor(x=>x.ProjectImage3, new{ @class="form-control"})
+
+
+    <br />
+    <br />
+
+    @Html.Label("Image-4")
+    @Html.TextBoxFor(x=>x.ProjectImage4, new{ @class="form-control"})
+
+    <br />
+    <br />
+
+
+
+    @Html.Label("Content")
+    @Html.TextAreaFor(x=>x.ProjectContenct,10,15, new{ @class="form-control"})
+
+    <br />
+    <br />
+
+    <button class="btn btn-success">Start</button>
+}
