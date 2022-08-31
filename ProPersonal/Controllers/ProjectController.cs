@@ -43,5 +43,31 @@ namespace ProPersonal.Controllers
             // would be usefull If add ongoing or accomplished stuffs...
             return RedirectToAction("Index", "Project");
         }
+
+        [HttpGet]
+        public IActionResult ProjectEdit(int id)
+        {
+           var projectValues = pm.GetProjectByIdb(id);
+            return View(projectValues);
+
+        }
+
+        [HttpPost]
+        public IActionResult ProjectEdit(Project p)
+        {
+            var projectUpdateTime = pm.TGetById(p.ProjectId);
+            p.ProjectPublishDate = DateTime.Parse(projectUpdateTime.ProjectPublishDate.ToShortDateString());
+            p.IsActiveProject =true;
+            pm.TUpdate(p);  
+
+            return RedirectToAction("Index");
+
+        }
+
+        public IActionResult ProjectListAll()
+        {
+            var values = pm.GetList();
+            return View();
+        }
     }
 }

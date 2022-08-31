@@ -41,7 +41,8 @@ namespace BusinessLogicLayer.Concrete
 
         public void TUpdate(Project t)
         {
-            throw new NotImplementedException();
+            _projectDal.Update(t);
+
         }
 
         public List<Project> GetProjectByIdb(int id)

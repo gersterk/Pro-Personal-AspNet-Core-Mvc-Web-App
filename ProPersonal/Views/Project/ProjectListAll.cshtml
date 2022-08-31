@@ -1,0 +1,39 @@
+﻿@model List<Project>
+@{
+    ViewData["Title"] = "ProjectListAll";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h1>Project List All</h1>
+
+<h2>Writer's Blogs</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Start Date</th>
+        <th>Statu</th>
+        <th>Edit</th> 
+        <th>Delete</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProjectId</td>
+            <td>@item.ProjectName</td>
+            <td>@(((DateTime)item.ProjectPublishDate).ToString("dd MMM yyyy"))</td>
+            <td>@item.IsActiveProject</td>
+            <td><a href="/Project/ProjectEdit/@item.ProjectId" class="btn btn-warning">Edit</a></td>
+
+            <td><a href="/Project/ProjectEdit/@item.ProjectId" onclick="return confirm('Are you sure, you want to delete?')" class="btn btn-dark">Delete</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href="/Project/ProjectAddNew/" class="btn btn-primary">Start new project</a>
+
+
+
