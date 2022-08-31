@@ -39,7 +39,7 @@ namespace ProPersonal.Controllers
             var userName = User.Identity.Name;
 
             var userMail = c.Users.Where(x => x.UserName == userName).Select(y => y.Email).FirstOrDefault();
-            var WriterIdentity = c.Writers.Where(x => x.WriterMail == userName).Select(y => y.WriterId).FirstOrDefault();
+            var WriterIdentity = c.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
             var values = bm.GetListByCategoryWithWriterBm(WriterIdentity);
 
             return View(values);
@@ -69,7 +69,7 @@ namespace ProPersonal.Controllers
         {
             var userName = User.Identity.Name;
             var userMail = c.Users.Where(x => x.UserName == userName).Select(y => y.Email).FirstOrDefault();
-            var WriterIdentity = c.Writers.Where(x => x.WriterMail == userName).Select(y => y.WriterId).FirstOrDefault();
+            var WriterIdentity = c.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
 
             BlogValidator bv = new BlogValidator();
             ValidationResult results = bv.Validate(p);
@@ -131,7 +131,7 @@ namespace ProPersonal.Controllers
         {
             var userName = User.Identity.Name;
             var userMail = c.Users.Where(x => x.UserName == userName).Select(y => y.Email).FirstOrDefault();
-            var WriterIdentity = c.Writers.Where(x => x.WriterMail == userName).Select(y => y.WriterId).FirstOrDefault();
+            var WriterIdentity = c.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
 
             var blogvalue = bm.TGetById(p.BlogId);
 

@@ -21,7 +21,7 @@
 
 
     @Html.Label("Blog Category")
-    @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.cv, new {@class="form-control"})
+    @Html.DropDownListFor(x=>x.CategoryId,(IEnumerable<SelectListItem>)ViewBag.cv, new {@class="form-control"})
     //List<SelectListItem is not working here but IEnumerable works... worth to learn why
    
     <br />
