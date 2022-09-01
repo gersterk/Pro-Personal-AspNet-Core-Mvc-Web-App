@@ -1,4 +1,4 @@
-﻿@model EntityLayer.Concrete.Project
+﻿@model EntityLayer.Concrete.Project 
 @{
     ViewData["Title"] = "ProjectAddNew";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
@@ -10,7 +10,7 @@
 <br />
 
 
-@using (Html.BeginForm("ProjectAddNew", "Project", FormMethod.Post))
+@using (Html.BeginForm("ProjectAddNew", "Project", FormMethod.Post, new{@class="col-lg-12"}))
 {
 
     @Html.Label("Project Name")
@@ -20,7 +20,7 @@
     <br />
 
     @Html.Label("Project Description")
-    @Html.TextAreaFor(x=>x.ProjectDescription,6,15, new{ @class="form-control"})
+    @Html.TextAreaFor(x=>x.ProjectDescription,6,12, new{ @class="form-control"}) 
 
     <br />
     <br />
