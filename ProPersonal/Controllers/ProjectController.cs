@@ -55,9 +55,10 @@ namespace ProPersonal.Controllers
         [HttpPost]
         public IActionResult ProjectEdit(Project p)
         {
-           
-            var projectUpdateTime = pm.TGetById(p.ProjectId);
-            p.ProjectPublishDate = DateTime.Parse(projectUpdateTime.ProjectPublishDate.ToShortDateString());
+            //var projectDate = pm.TGetById(p.ProjectId);
+
+            //p.ProjectPublishDate = DateTime.Parse(projectDate.ProjectPublishDate.ToShortDateString());
+            p.ProjectPublishDate = DateTime.Parse(DateTime.Now.ToShortDateString());    
             p.IsActiveProject =true;
             pm.TUpdate(p);  
 
@@ -69,6 +70,15 @@ namespace ProPersonal.Controllers
         {
             var values = pm.GetList();
             return View(values);
+        }
+
+        public IActionResult ProjectDelete(int id)
+        {
+            var projectValues = pm.TGetById(id);
+            pm.TDelete(projectValues);
+            return RedirectToAction("ProjectListAll");
+
+
         }
     }
 }
