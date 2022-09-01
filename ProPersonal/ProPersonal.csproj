@@ -108,7 +108,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Views\Home\" />
     <Folder Include="wwwroot\WriterImageFile\" />
   </ItemGroup>
 
