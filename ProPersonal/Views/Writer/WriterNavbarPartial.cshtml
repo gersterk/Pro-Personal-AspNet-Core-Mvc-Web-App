@@ -1,17 +1,15 @@
-﻿@*@using EntityLayer.Concrete
-@model List<Writer>
-*@
+﻿
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-                    <img src="~/writer/assets/images/faces/face1.jpg" alt="profile">
+                    <img src="~/adminTheme/img/userphotos/admin-photo.jpeg" alt="profile">
                     <span class="login-status online"></span>
                     <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
-                    <span class="font-weight-bold mb-2">Writers Name</span>
+                    <span class="font-weight-bold mb-2">Baris Dogan</span>
                     <span class="text-secondary text-small">Software Developer</span>
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
@@ -36,12 +34,6 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/Blog/BlogAddNew">
-                <span class="menu-title">New Blog</span>
-                <i class="mdi mdi-chart-bar menu-icon"></i>
-            </a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link" href="~/Shared/Components/CommentListByBlog">
                 <span class="menu-title">Comments</span>
                 <i class="mdi mdi-table-large menu-icon"></i>
@@ -61,19 +53,20 @@
                 <i class="menu-arrow"></i>
                 <i class="mdi mdimdi-file-document menu-icon"></i>
             </a>
-      
         </li>
-        <li class="nav-item sidebar-actions">
-             <a class="nav-link" href="/Project/ProjectListAll">
-            <span class="nav-link">
-                <div class="border-bottom">
-                    <h6 class="font-weight-normal mb-3">Projects</h6>
-                </div>
-                <a href = "/Project/ProjectAddNew" class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Add Project<a/>
-            </span>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Project/ProjectListAll">
+                <span class="menu-title">Projects</span>
+                <i class="mdi mdi-notification-clear-all large menu-icon"></i>
             </a>
         </li>
 
+         <a href = "/Project/ProjectAddNew" class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Add Project<a/>
+         <a href = "/Blog/BlogAddNew" class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Add Blog<a/>
+
+
+    
          <li class="nav-item">
             <a class="nav-link" href="/Writer/WriterEditProfile/" data-toggle="collapse" aria-expanded="false" aria-controls="general-pages" >
                 <span class="menu-title">Settings </span>

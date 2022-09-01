@@ -56,8 +56,8 @@ namespace ProPersonal.Controllers
         public IActionResult ProjectEdit(Project p)
         {
            
-            //var projectUpdateTime = pm.TGetById(p.ProjectId);
-            //p.ProjectPublishDate = DateTime.Parse(projectUpdateTime.ProjectPublishDate.ToShortDateString());
+            var projectUpdateTime = pm.TGetById(p.ProjectId);
+            p.ProjectPublishDate = DateTime.Parse(projectUpdateTime.ProjectPublishDate.ToShortDateString());
             p.IsActiveProject =true;
             pm.TUpdate(p);  
 

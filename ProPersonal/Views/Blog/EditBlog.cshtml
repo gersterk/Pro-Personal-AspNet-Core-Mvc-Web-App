@@ -3,14 +3,17 @@
     ViewData["Title"] = "EditBlog";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
+<br />
+<br />
 
-<h2>Edit Blog</h2>
+<h3>Edit Blog</h3>
+<br />
+<br />
+
 
 @using (Html.BeginForm("EditBlog", "Blog", FormMethod.Post))
 {
-    @Html.Label("Blog Id")
-    @Html.HiddenFor(x=>x.BlogId, new{@class="form-control"})
-    <br />
+
 
     @Html.Label("Blog Name")
     @Html.TextBoxFor(x=>x.BlogName, new{ @class="form-control"})
@@ -54,5 +57,5 @@
     <br />
     <br />
 
-    <button class="btn btn-success">Update</button>
+    <button class="btn btn-dark">Update</button>
 }
