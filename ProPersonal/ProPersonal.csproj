@@ -9,6 +9,39 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\resume\css\bootstrap-icons\fonts\bootstrap-icons.woff2" />
+    <None Include="wwwroot\resume\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\resume\css\font-awesome\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\resume\css\font-awesome\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\resume\css\font-awesome\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\resume\css\font-awesome\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\resume\css\font-awesome\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\resume\css\font-awesome\webfonts\fa-solid-900.woff2" />
+    <None Include="wwwroot\resume\images\illustrations\building_websites.svg" />
+    <None Include="wwwroot\resume\images\illustrations\creative-team.svg" />
+    <None Include="wwwroot\resume\images\illustrations\development.svg" />
+    <None Include="wwwroot\resume\images\illustrations\hello.svg" />
+    <None Include="wwwroot\resume\images\illustrations\hello2.svg" />
+    <None Include="wwwroot\resume\images\illustrations\hello3.svg" />
+    <None Include="wwwroot\resume\images\illustrations\hello4.svg" />
+    <None Include="wwwroot\resume\images\illustrations\website-app.svg" />
+    <None Include="wwwroot\resume\images\illustrations\work-chat.svg" />
+    <None Include="wwwroot\resume\images\illustrations\work-together.svg" />
+    <None Include="wwwroot\resume\images\marker.svg" />
+    <None Include="wwwroot\resume\images\services\app-development.svg" />
+    <None Include="wwwroot\resume\images\services\full-stack.svg" />
+    <None Include="wwwroot\resume\images\services\graphic-design.svg" />
+    <None Include="wwwroot\resume\images\services\ui-ux.svg" />
+    <None Include="wwwroot\resume\images\services\web-design.svg" />
+    <None Include="wwwroot\resume\images\wave-bg.svg" />
+    <None Include="wwwroot\resume\scripts\aos.min.js" />
+    <None Include="wwwroot\resume\scripts\BigPicture.min.js" />
+    <None Include="wwwroot\resume\scripts\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\resume\scripts\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\resume\scripts\imagesloaded.pkgd.min.js" />
+    <None Include="wwwroot\resume\scripts\main.js" />
+    <None Include="wwwroot\resume\scripts\masonry.pkgd.min.js" />
+    <None Include="wwwroot\resume\scripts\purecounter.min.js" />
     <None Include="wwwroot\Theme\web\about.html" />
     <None Include="wwwroot\Theme\web\blog1.html" />
     <None Include="wwwroot\Theme\web\blog2.html" />
