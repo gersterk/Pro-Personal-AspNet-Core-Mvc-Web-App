@@ -45,5 +45,10 @@ namespace DataAccessLayer.Concrete
         public DbSet <Notification> Notifications{ get; set; }
         
         public DbSet<Admin> Admins { get; set; }
+        public DbSet<Skill> Skills { get; set; }
+        public DbSet<Portfolio> Portfolios { get; set; }
+        public DbSet<Experience> Experiences { get; set; }
+        public DbSet<BusinessCard> BusinessCards { get; set; }
+        public DbSet<Interest> Interests { get; set; }
     }
 }
