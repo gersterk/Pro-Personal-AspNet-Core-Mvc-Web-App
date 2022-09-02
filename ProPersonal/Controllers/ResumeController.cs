@@ -9,6 +9,7 @@ namespace ProPersonal.Controllers
     {
         BusinessCardManager bcm = new BusinessCardManager(new EfBusinessCardRepository());
 
+
         [AllowAnonymous]
         public IActionResult Index()
         {
@@ -24,7 +25,7 @@ namespace ProPersonal.Controllers
 
         public PartialViewResult MySkills()
         {
-            var values = bcm.GetList();
+            var values = bcm.GetList(); //should come from SkillManager but theres no such yet...
             return PartialView(values);
 
         }
