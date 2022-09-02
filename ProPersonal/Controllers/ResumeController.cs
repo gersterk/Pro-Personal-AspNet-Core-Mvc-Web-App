@@ -15,11 +15,18 @@ namespace ProPersonal.Controllers
             return View();
         }
 
-        public IActionResult Card()
+        public IActionResult Card(int id)
         {
-            var values = bcm.GetList();
+            var values = bcm.TGetById(id);
+
             return View(values);
         }
 
+        public PartialViewResult MySkills()
+        {
+            var values = bcm.GetList();
+            return PartialView(values);
+
+        }
     }
 }
