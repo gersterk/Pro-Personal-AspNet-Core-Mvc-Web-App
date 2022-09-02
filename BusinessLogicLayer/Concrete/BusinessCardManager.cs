@@ -1,4 +1,5 @@
 ﻿using BusinessLogicLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,38 @@ namespace BusinessLogicLayer.Concrete
 {
     public class BusinessCardManager : IBusinessCardService
     {
+        IBusinessCardDal _businessCardDal; 
+
+        public BusinessCardManager(IBusinessCardDal businessCardDal)
+        {
+            _businessCardDal = businessCardDal; 
+        }
+
         public List<BusinessCard> GetList()
         {
-            throw new NotImplementedException();
+            return _businessCardDal.GetAllList();
         }
 
         public void TAdd(BusinessCard t)
         {
-            throw new NotImplementedException();
+            _businessCardDal.Insert(t);
         }
 
         public void TDelete(BusinessCard t)
         {
-            throw new NotImplementedException();
+            _businessCardDal.Delete(t);
+
         }
 
         public BusinessCard TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _businessCardDal.GetById(id);
         }
 
         public void TUpdate(BusinessCard t)
         {
-            throw new NotImplementedException();
+            _businessCardDal.Update(t);
+
         }
     }
 }

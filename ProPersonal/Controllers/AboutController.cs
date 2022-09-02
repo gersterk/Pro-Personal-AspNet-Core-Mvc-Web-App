@@ -16,7 +16,6 @@ namespace ProPersonal.Controllers
         }
         public PartialViewResult SocialMediaAbout()
         {
-            
 
             return PartialView();
 

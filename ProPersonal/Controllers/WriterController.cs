@@ -15,7 +15,8 @@ using System.Threading.Tasks;
 
 namespace ProPersonal.Controllers
 {
-  
+
+    [Authorize]
     public class WriterController : Controller
     {
         WriterManager wm = new WriterManager(new EfWriterRepository());
@@ -31,7 +32,7 @@ namespace ProPersonal.Controllers
         }
 
 
-        [Authorize]
+        
         public IActionResult Index()
         {
             var usermail = User.Identity.Name; //brings the current user's details like username or email
@@ -65,7 +66,7 @@ namespace ProPersonal.Controllers
 
 
 
-        [AllowAnonymous]
+        
         public PartialViewResult WriterFooterPartial()
         {
             return PartialView();
@@ -105,14 +106,14 @@ namespace ProPersonal.Controllers
         
 
 
-        [AllowAnonymous]
+       
         [HttpGet]       
         public IActionResult WriterAdd()  //this methods is for adding images to the writer's profile... The name is missing...
         {
             return View();
 
         }
-        [AllowAnonymous]
+        
         [HttpPost]
         public IActionResult WriterAdd(AddProfileImage p)
         {

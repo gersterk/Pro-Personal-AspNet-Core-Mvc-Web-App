@@ -5,22 +5,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ProPersonal.Controllers
 {
-    public class NotificationController : Controller
+    public class ResumeController : Controller
     {
-        NotificationManager nm = new NotificationManager(new EfNotificationRepository());
+        BusinessCardManager bcm = new BusinessCardManager(new EfBusinessCardRepository());
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
 
-       
-        public IActionResult AllNotification()
+        public IActionResult Card()
         {
-            var values = nm.GetList();
-
+            var values = bcm.GetList();
             return View(values);
-
         }
+
     }
 }
