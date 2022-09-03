@@ -1,7 +1,9 @@
 ﻿using BusinessLogicLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace ProPersonal.Controllers
 {
@@ -18,9 +20,8 @@ namespace ProPersonal.Controllers
 
         public IActionResult Card(int id)
         {
-            var values = bcm.TGetById(id);
-            values.Id = 1;
-            return View(values);
+            var getCard = bcm.TGetById(id);
+            return View(getCard);
         }
 
         public IActionResult MySkills()
