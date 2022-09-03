@@ -11,11 +11,11 @@ namespace BusinessLogicLayer.Concrete
 {
     public class BusinessCardManager : IBusinessCardService
     {
-        IBusinessCardDal _businessCardDal; 
+        IBusinessCardDal _businessCardDal;
 
         public BusinessCardManager(IBusinessCardDal businessCardDal)
         {
-            _businessCardDal = businessCardDal; 
+            _businessCardDal = businessCardDal;
         }
 
         public List<BusinessCard> GetList()
