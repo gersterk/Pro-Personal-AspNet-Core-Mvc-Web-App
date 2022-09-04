@@ -132,11 +132,11 @@ namespace ProPersonal.Controllers
             var userName = User.Identity.Name;
             var userMail = c.Users.Where(x => x.UserName == userName).Select(y => y.Email).FirstOrDefault();
             var WriterIdentity = c.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
-
-            var blogvalue = bm.TGetById(p.BlogId);
-
             p.WriterId = WriterIdentity;
-            p.PublishDate = DateTime.Parse(blogvalue.PublishDate.ToShortDateString()); //keeps the publish date as it was 
+
+
+         
+            p.PublishDate = DateTime.Parse(DateTime.Now.ToShortDateString()); //keeps the publish date as it was 
             p.IsActiveBlog = true;
 
             bm.TUpdate(p);
