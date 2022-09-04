@@ -30,7 +30,7 @@
                                         <td>
                                             <a href="/Category/Index/@item.CategoryId" class="badge badge-dark">@item.Category.CategoryName</a>
                                         </td>
-                                        <td> @(((DateTime)item.PublishDate).ToString("dd-MMM-yyyy")) </td>
+                                        <td> @(((DateTime)item.PublishDate).ToString("dd MMM yyyy")) </td>
                                         <td><a href ="/Blog/BlogReadAll/@item.BlogId" class="badge badge-dark">Details</a></td>
                                     </tr>
                             }

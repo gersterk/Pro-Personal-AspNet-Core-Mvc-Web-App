@@ -38,7 +38,7 @@ namespace ProPersonal.Controllers
         public IActionResult ProjectAddNew(Project p)
         {
             p.IsActiveProject = true;
-            p.ProjectPublishDate = DateTime.Parse(DateTime.Now.ToLongDateString());
+            p.ProjectPublishDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             pm.TAdd(p);
             // would be usefull If add ongoing or accomplished stuffs...
             return RedirectToAction("Index", "Project");
