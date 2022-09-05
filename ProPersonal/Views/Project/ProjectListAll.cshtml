@@ -3,8 +3,12 @@
     ViewData["Title"] = "ProjectListAll";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
+<br />
 
-<h1>Project List All</h1>
+<h3>Projects</h3>
+<br />
+<br />
+
 
 
 <table class="table table-bordered">
@@ -29,10 +33,10 @@
             <td><a href="/Project/ProjectDelete/@item.ProjectId" onclick="return confirm('Are you sure, you want to delete?')" class="btn btn-dark">Delete</a></td>
         </tr>
     }
-
+    <a href="/Project/ProjectAddNew/" class="btn btn-primary">Start new project</a>
 </table>
 
-<a href="/Project/ProjectAddNew/" class="btn btn-primary">Start new project</a>
+
 
 
 

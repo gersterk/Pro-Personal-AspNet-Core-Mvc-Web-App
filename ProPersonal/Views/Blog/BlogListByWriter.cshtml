@@ -3,8 +3,10 @@
     ViewData["Title"] = "BlogListByWriter";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
-
-<h2>Writer's Blogs</h2>
+<br />
+<h3>Writer's Blogs</h3>
+<br />
+<br />
 
 <table class="table table-bordered">
     <tr>
@@ -30,8 +32,8 @@
             <td><a href="/Blog/DeleteBlog/@item.BlogId" onclick="return confirm('Are you sure, you want to delete?')" class="btn btn-dark">Delete</a></td>
         </tr>
     }
-
+    <a href="/Blog/BlogAddNew/" class="btn btn-primary">Create new blog</a>
 </table>
 
-<a href="/Blog/BlogAddNew/" class="btn btn-primary">Create new blog</a>
+
 
