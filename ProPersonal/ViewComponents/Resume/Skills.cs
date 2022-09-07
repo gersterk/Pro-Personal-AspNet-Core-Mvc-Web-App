@@ -1,6 +1,7 @@
 ﻿using BusinessLogicLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
+using ProPersonal.Models;
 
 namespace ProPersonal.ViewComponents.Resume
 {
@@ -13,5 +14,6 @@ namespace ProPersonal.ViewComponents.Resume
             var getSkills = skillManager.GetList();
             return View(getSkills);
         }
+
     }
 }

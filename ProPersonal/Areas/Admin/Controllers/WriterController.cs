@@ -26,7 +26,6 @@ namespace ProPersonal.Areas.Admin.Controllers
             var jsonWriters = JsonConvert.SerializeObject(w);
             return Json(jsonWriters);
 
-
         }
 
         public IActionResult DeleteWriter(int id)
@@ -53,6 +52,8 @@ namespace ProPersonal.Areas.Admin.Controllers
             return Json(jsonWriter);
 
         }
+
+
         public static List<WriterModel> writers = new List<WriterModel>
         {
             new WriterModel
