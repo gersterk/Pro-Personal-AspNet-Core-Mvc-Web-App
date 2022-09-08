@@ -42,7 +42,7 @@ namespace ProPersonal.Controllers
         {
             bc.IsActive = true;
             _businessCardManager.TUpdate(bc);
-            return View("EditBusinessCard");
+            return View("DashbaordIndex");
         }
 
 
@@ -60,7 +60,7 @@ namespace ProPersonal.Controllers
         public IActionResult UpdateSkills(Skill t)
         {
             _skillManager.TUpdate(t);
-            return RedirectToAction("UpdateSkills");
+            return RedirectToAction("DashbaordIndex");
         }
 
 
