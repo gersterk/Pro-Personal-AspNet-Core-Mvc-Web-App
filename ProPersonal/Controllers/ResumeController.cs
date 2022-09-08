@@ -14,11 +14,11 @@ namespace ProPersonal.Controllers
         }
 
         [HttpGet]
-        public IActionResult EditBusinessCard(int id=1)
+        public IActionResult EditBusinessCard()
         {
             BusinessCardManager businessCardManager = new BusinessCardManager(new EfBusinessCardRepository());
 
-            var editList = businessCardManager.TGetById(id);
+            var editList = businessCardManager.TGetById(1);
             return View(editList);
         }
 
@@ -26,9 +26,26 @@ namespace ProPersonal.Controllers
         public IActionResult EditBusinessCard(BusinessCard bc)
         {
             BusinessCardManager businessCardManager = new BusinessCardManager(new EfBusinessCardRepository());
-
+            bc.IsActive = true;
             businessCardManager.TUpdate(bc);
             return View("EditBusinessCard");
+        }
+
+        [HttpGet]
+        public IActionResult UpdateSkills()
+        {
+            SkillManager skillManager = new SkillManager(new EfSkillRepository());
+            var getSkill = skillManager.GetList();
+            return View(getSkill);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateSkills(Skill t)
+        {
+            SkillManager skillManager = new SkillManager(new EfSkillRepository());
+            skillManager.TUpdate(t);
+
+            return RedirectToAction("UpdateSkills");
         }
     }
 }

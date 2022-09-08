@@ -57,7 +57,7 @@ namespace ProPersonal.Controllers
 
 
 
-        [AllowAnonymous]
+        
         public IActionResult WriterNavbarPartial()
         {
             return View();
