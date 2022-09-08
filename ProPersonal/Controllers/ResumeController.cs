@@ -1,6 +1,7 @@
 ﻿using BusinessLogicLayer.Concrete; 
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
@@ -8,44 +9,60 @@ namespace ProPersonal.Controllers
 {
     public class ResumeController : Controller
     {
+        BusinessCardManager _businessCardManager = new BusinessCardManager(new EfBusinessCardRepository());
+        SkillManager _skillManager = new SkillManager(new EfSkillRepository());
+
         public IActionResult Index()
-        {   
+        {
+            //index will be shown on client part
             return View();
         }
 
+        public IActionResult DashbaordIndex()
+        {
+
+            //Will be shown on dashboard to list and edit
+            return View();
+        }
+
+
+        [Authorize]
         [HttpGet]
         public IActionResult EditBusinessCard()
         {
-            BusinessCardManager businessCardManager = new BusinessCardManager(new EfBusinessCardRepository());
 
-            var editList = businessCardManager.TGetById(1);
+            var editList = _businessCardManager.TGetById(1);
             return View(editList);
         }
 
+
+        [Authorize]
         [HttpPost]
         public IActionResult EditBusinessCard(BusinessCard bc)
         {
-            BusinessCardManager businessCardManager = new BusinessCardManager(new EfBusinessCardRepository());
             bc.IsActive = true;
-            businessCardManager.TUpdate(bc);
+            _businessCardManager.TUpdate(bc);
             return View("EditBusinessCard");
         }
 
+
+        [Authorize]
         [HttpGet]
         public IActionResult UpdateSkills()
         {
-            SkillManager skillManager = new SkillManager(new EfSkillRepository());
-            var getSkill = skillManager.GetList();
+            var getSkill = _skillManager.GetList();
             return View(getSkill);
         }
 
+
+        [Authorize]
         [HttpPost]
         public IActionResult UpdateSkills(Skill t)
         {
-            SkillManager skillManager = new SkillManager(new EfSkillRepository());
-            skillManager.TUpdate(t);
-
+            _skillManager.TUpdate(t);
             return RedirectToAction("UpdateSkills");
         }
+
+
     }
 }
