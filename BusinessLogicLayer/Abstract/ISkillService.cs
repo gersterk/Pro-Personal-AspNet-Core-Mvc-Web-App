@@ -9,5 +9,6 @@ namespace BusinessLogicLayer.Abstract
 {
     public interface ISkillService :IGenericService<Skill>
     {
+       
     }
 }

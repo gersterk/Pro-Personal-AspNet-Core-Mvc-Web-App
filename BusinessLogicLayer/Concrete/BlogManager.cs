@@ -66,7 +66,7 @@ namespace BusinessLogicLayer.Concrete
 
         }
 
-        public List<Blog> GetListByCategoryWithWriterBm(int id)
+        public List<Blog> GetListByCategoryWithWriterBm(int id) //BM stands for Blog Manager
         {
             return _blogDal.GetListByCategoryWithWriter(id);
         }

@@ -3,6 +3,9 @@ using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using ProPersonal.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ProPersonal.Controllers
@@ -50,18 +53,33 @@ namespace ProPersonal.Controllers
         [HttpGet]
         public IActionResult UpdateSkills()
         {
-            var getSkill = _skillManager.GetList();
-            return View(getSkill);
+
+
+            List<SelectListItem> skillsToSelect = (from list in _skillManager.GetList()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = list.Name,
+                                                       Value = list.Id.ToString()
+                                                   }).ToList();
+
+            ViewBag.listedSkills = skillsToSelect;
+
+
+            return View();
         }
 
 
         [Authorize]
         [HttpPost]
-        public IActionResult UpdateSkills(Skill t)
+        public IActionResult UpdateSkillById(Skill t)
         {
+            //this should be updated by id
             _skillManager.TUpdate(t);
             return RedirectToAction("DashbaordIndex");
         }
+        
+        
+
 
 
 

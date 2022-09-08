@@ -8,11 +8,16 @@
 
 
 
+@using (Html.BeginForm("UpdateSkills", "Resume", FormMethod.Post, new { @class = "col-lg-12" }))
+{
+    @Html.Label("Skills")
+    @Html.DropDownListFor(x=>x.Id,(List<SelectListItem>)ViewBag.listSkills, new {@class="form-control"})
 
-@using (Html.BeginForm("UpdateSkills", "Resume", FormMethod.Post,  new{@class="col-lg-12"})){
+
 
     @Html.Label("Your Shine")
     @Html.TextBoxFor(x=>x.Name, new{ @class="form-control"})
+ 
 
     <br />
     <br />
@@ -21,7 +26,7 @@
 
     @Html.Label("How good you are?")
     @Html.TextBoxFor(x=>x.Qualification, new {@class="form-control"})
-   
+
     <br />
     <br />
 
@@ -31,7 +36,7 @@
     @Html.Label("Still skilled and interested?")
     @Html.TextBoxFor(x=>x.IsActive, new{ @class="form-control"})
 
-   
+
     <br />
     <br />
 
