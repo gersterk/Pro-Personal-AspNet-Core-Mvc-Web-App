@@ -14,6 +14,7 @@ namespace ProPersonal.Controllers
     {
         BusinessCardManager _businessCardManager = new BusinessCardManager(new EfBusinessCardRepository());
         SkillManager _skillManager = new SkillManager(new EfSkillRepository());
+        ExperienceManager _experienceManager = new ExperienceManager(new EfExperienceRepository());
 
         public IActionResult Index()
         {
@@ -21,6 +22,7 @@ namespace ProPersonal.Controllers
             return View();
         }
 
+        [Authorize]
         public IActionResult DashbaordIndex()
         {
 
@@ -54,7 +56,7 @@ namespace ProPersonal.Controllers
         public IActionResult UpdateSkills()
         {
 
-
+            
             List<SelectListItem> skillsToSelect = (from list in _skillManager.GetList()
                                                    select new SelectListItem
                                                    {
@@ -71,14 +73,41 @@ namespace ProPersonal.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult UpdateSkillById(Skill t)
+        public IActionResult UpdateSkills(Skill t)
         {
             //this should be updated by id
+            t.IsActive = true;
             _skillManager.TUpdate(t);
             return RedirectToAction("DashbaordIndex");
         }
-        
-        
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult ListExperience()
+        {
+            var experience = _experienceManager.GetList();
+            return View(experience);
+        }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult AddExperience()
+        {
+            var experience = _experienceManager.GetList();
+            return View(experience);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult AddExperience(Experience exp)
+        {
+            exp.IsActive = true;
+            _experienceManager.TAdd(exp);
+            return View("DashbaordIndex");
+        }
+
+
+
 
 
 

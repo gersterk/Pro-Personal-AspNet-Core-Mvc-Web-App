@@ -26,7 +26,7 @@ namespace BusinessLogicLayer.Concrete
 
         public void TAdd(Skill t)
         {
-            throw new NotImplementedException();
+            _skilldal.Insert(t);
         }
 
         public void TDelete(Skill t)
@@ -41,7 +41,7 @@ namespace BusinessLogicLayer.Concrete
 
         public void TUpdate(Skill t)
         {
-            throw new NotImplementedException();
+            _skilldal.Update(t);
         }
     }
 }
