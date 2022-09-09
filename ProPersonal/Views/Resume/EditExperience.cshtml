@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.Experience
+@{
+    ViewData["Title"] = "EditExperience";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h3>Edit Experience</h3>
+
+@using (Html.BeginForm("EditExperience", "Resume", FormMethod.Post, new { @class = "col-lg-12}" }))
+{
+    @Html.Label("Position")
+    @Html.TextBoxFor(n=>n.Position, new {@class="form-control" })
+
+    @Html.Label("Company Name")
+    @Html.TextBoxFor(n=>n.CompanyName, new {@class="form-control" })
+
+    @Html.Label("Start Date [MM-yyyy]")
+    @Html.TextBoxFor(n=>n.StartDate, new {@class="form-control" })
+
+    @Html.Label("End Date [MM-yyyy]")
+    @Html.TextBoxFor(n=>n.EndDate, new {@class="form-control" })
+
+    @Html.Label("Description")
+    @Html.TextBoxFor(n=>n.Description, new {@class="form-control" })
+
+    @Html.Label("Gains")
+    @Html.TextBoxFor(n=>n.Gain, new {@class="form-control" })
+
+    <button class="btn btn-dark">Update</button>
+
+    <br />
+    <br />
+}

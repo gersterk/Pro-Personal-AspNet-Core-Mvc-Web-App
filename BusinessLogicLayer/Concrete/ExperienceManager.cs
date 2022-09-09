@@ -26,7 +26,7 @@ namespace BusinessLogicLayer.Concrete
 
         public void TAdd(Experience t)
         {
-            throw new NotImplementedException();
+            _experienceDal.Update(t);
         }
 
         public void TDelete(Experience t)
@@ -36,12 +36,12 @@ namespace BusinessLogicLayer.Concrete
 
         public Experience TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _experienceDal.GetById(id);
         }
 
         public void TUpdate(Experience t)
         {
-            throw new NotImplementedException();
+            _experienceDal.Update(t);
         }
     }
 }

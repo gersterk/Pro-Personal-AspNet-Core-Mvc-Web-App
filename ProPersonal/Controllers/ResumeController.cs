@@ -87,6 +87,8 @@ namespace ProPersonal.Controllers
         {
             var experience = _experienceManager.GetList();
             return View(experience);
+
+            //the method will display the list of work experiences on dashboard
         }
 
         [Authorize]
@@ -106,6 +108,37 @@ namespace ProPersonal.Controllers
             return View("DashbaordIndex");
         }
 
+        [Authorize]
+        [HttpGet]
+        public IActionResult EditExperience(int id)
+        {
+
+            var getValues = _experienceManager.TGetById(id);
+
+
+            List<SelectListItem> expValues = (from x in _experienceManager.GetList()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.Position,
+                                                       Value = x.Id.ToString()
+                                                   }).ToList();
+            
+            ViewBag.listExperience = expValues;
+
+            return View(getValues);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult EditExperience(Experience exp)
+        {
+            exp.IsActive = true;
+            _experienceManager.TUpdate(exp);
+            return View("ListExperience");
+        }
+
+
+        //I will not have an action of deleting because editing will be enough
 
 
 
