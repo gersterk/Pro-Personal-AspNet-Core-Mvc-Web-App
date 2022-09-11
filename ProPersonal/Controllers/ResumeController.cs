@@ -150,7 +150,48 @@ namespace ProPersonal.Controllers
         }
 
 
+        [HttpGet]
+        public IActionResult EditPortfolio(int id)
+        {
+            var values = _portfolioManager.TGetById(id);
+
+            List<SelectListItem> selectListItems = (from x in _portfolioManager.GetList()
+                                                    select new SelectListItem
+                                                    {
+
+                                                        Text = x.Name,
+                                                        Value = x.Id.ToString()
+
+                                                    }).ToList();
+            ViewBag.portfolio = selectListItems;
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult EditPortfolio(Portfolio p)
+        {
+            p.IsActive = true;
+
+            _portfolioManager.TUpdate(p);
+            return View("GetPorfolio");
+        }
+
         // then the whole editing part
 
+        [HttpGet]
+        public IActionResult AddPortfolio()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult AddPortfolio(Portfolio p)
+        {
+            p.IsActive = true;
+            _portfolioManager.TAdd(p);
+            return View("GetPorfolio");
+        }
     }
 }

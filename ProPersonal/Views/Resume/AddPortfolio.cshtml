@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Concrete.Portfolio
+@{
+    ViewData["Title"] = "AddPortfolio";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h1>Add Portfolio</h1>
+
+
+
+@using (Html.BeginForm("AddPortfolio", "Resume", FormMethod.Post, new { @class = "col-lg-12}" }))
+{
+    @Html.Label("Name")
+    @Html.TextBoxFor(x=>x.Name, new {@class="form-control"})
+    <br />
+    @Html.Label("Sub-Name (Where is it)")
+    @Html.TextBoxFor(n=>n.SubName, new {@class="form-control" })
+    <br />
+    @Html.Label("Image")
+    @Html.TextBoxFor(n=>n.Image, new {@class="form-control" })
+    <br />
+    @Html.Label("Link to the portfolio")
+    @Html.TextBoxFor(n=>n.Url, new {@class="form-control" })
+    <br />
+    <button class="btn btn-dark">Create</button>
+
+    <br />
+    <br />
+
+}
+
