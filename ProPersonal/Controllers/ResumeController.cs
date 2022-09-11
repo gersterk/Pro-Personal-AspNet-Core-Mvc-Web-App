@@ -191,7 +191,7 @@ namespace ProPersonal.Controllers
         {
             p.IsActive = true;
             _portfolioManager.TAdd(p);
-            return View("GetPorfolio");
+            return View("DashbaordIndex");
         }
     }
 }
