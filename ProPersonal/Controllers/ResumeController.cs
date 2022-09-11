@@ -10,19 +10,21 @@ using System.Linq;
 
 namespace ProPersonal.Controllers
 {
+    [Authorize]
     public class ResumeController : Controller
     {
         BusinessCardManager _businessCardManager = new BusinessCardManager(new EfBusinessCardRepository());
         SkillManager _skillManager = new SkillManager(new EfSkillRepository());
         ExperienceManager _experienceManager = new ExperienceManager(new EfExperienceRepository());
-
+        PortfolioManager _portfolioManager = new PortfolioManager(new EfPortfolioRepository());
+        [AllowAnonymous]
         public IActionResult Index()
         {
             //index will be shown on client part
             return View();
         }
 
-        [Authorize]
+        
         public IActionResult DashbaordIndex()
         {
 
@@ -30,8 +32,6 @@ namespace ProPersonal.Controllers
             return View();
         }
 
-
-        [Authorize]
         [HttpGet]
         public IActionResult EditBusinessCard()
         {
@@ -41,7 +41,6 @@ namespace ProPersonal.Controllers
         }
 
 
-        [Authorize]
         [HttpPost]
         public IActionResult EditBusinessCard(BusinessCard bc)
         {
@@ -51,7 +50,7 @@ namespace ProPersonal.Controllers
         }
 
 
-        [Authorize]
+
         [HttpGet]
         public IActionResult UpdateSkills()
         {
@@ -71,7 +70,7 @@ namespace ProPersonal.Controllers
         }
 
 
-        [Authorize]
+
         [HttpPost]
         public IActionResult UpdateSkills(Skill t)
         {
@@ -81,7 +80,7 @@ namespace ProPersonal.Controllers
             return RedirectToAction("DashbaordIndex");
         }
 
-        [Authorize]
+    
         [HttpGet]
         public IActionResult ListExperience()
         {
@@ -91,7 +90,7 @@ namespace ProPersonal.Controllers
             //the method will display the list of work experiences on dashboard
         }
 
-        [Authorize]
+   
         [HttpGet]
         public IActionResult AddExperience()
         {
@@ -99,7 +98,6 @@ namespace ProPersonal.Controllers
             return View(experience);
         }
 
-        [Authorize]
         [HttpPost]
         public IActionResult AddExperience(Experience exp)
         {
@@ -108,7 +106,7 @@ namespace ProPersonal.Controllers
             return View("DashbaordIndex");
         }
 
-        [Authorize]
+        
         [HttpGet]
         public IActionResult EditExperience(int id)
         {
@@ -128,7 +126,7 @@ namespace ProPersonal.Controllers
             return View(getValues);
         }
 
-        [Authorize]
+        
         [HttpPost]
         public IActionResult EditExperience(Experience exp)
         {
@@ -141,7 +139,15 @@ namespace ProPersonal.Controllers
         //I will not have an action of deleting because editing will be enough
 
 
+
+
         //portfolio
+        [HttpGet]
+        public IActionResult GetPorfolio()
+        {
+            var values = _portfolioManager.GetList();
+            return View(values);
+        }
 
 
         // then the whole editing part

@@ -14,6 +14,7 @@ namespace EntityLayer.Concrete
         public string Name { get; set; }
         public string SubName { get; set; } //monitors if the environment or the portfolio has any extra description
         public string Image { get; set; }
+        public string Url { get; set; }
      
     }
 }
