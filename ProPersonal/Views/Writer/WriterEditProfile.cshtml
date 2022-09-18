@@ -13,8 +13,6 @@
             <br />
 
             <form class="forms-sample" method="post">
-
-
                 <div class="form-group">
                     <label for="exampleInputName1">Name Surname</label>
                     <input type="text" asp-for="@Model.namesurname" class="form-control" />
@@ -43,18 +41,10 @@
                     <input type="text" asp-for="@Model.imageurl" class="form-control" />
                 </div>
 
+                <a href="/Writer/WriterAdd/">Update Image</a>
 
-                <div class="form-group">
-                    <label>Upload Image</label>
-                    <input type="file" name="img[]" class="file-upload-default">
-                    <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                        <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                        </span>
-                    </div>
-                </div>
-
+                <br />
+                <br />
                 @*<div class="form-group">
                 <label for="exampleTextarea1">About</label>
                 @Html.TextAreaFor(x=>x.WriteAbout, 10,5,  new{@class="form-control"})

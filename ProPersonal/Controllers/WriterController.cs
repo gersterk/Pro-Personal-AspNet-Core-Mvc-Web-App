@@ -32,7 +32,7 @@ namespace ProPersonal.Controllers
         }
 
 
-        
+
         public IActionResult Index()
         {
             var usermail = User.Identity.Name; //brings the current user's details like username or email
@@ -42,9 +42,6 @@ namespace ProPersonal.Controllers
             Context c = new Context();
             var writerName = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterName).FirstOrDefault();
             ViewBag.v2 = writerName;
-
-
-
             return View();
         }
 
@@ -56,17 +53,13 @@ namespace ProPersonal.Controllers
         }
 
 
-
-        
-        public IActionResult WriterNavbarPartial()
+        public IActionResult WriterNavbarPartial()   // this should be bringing picture and photo but Idk why doesnt
         {
+   
             return View();
 
         }
 
-
-
-        
         public PartialViewResult WriterFooterPartial()
         {
             return PartialView();
@@ -85,13 +78,13 @@ namespace ProPersonal.Controllers
             model.namesurname = values.NameSurname;
             model.username = values.UserName;
             model.imageurl = values.ImageUrl;
-            
+
 
             return View(model);
         }
-   
+
         [HttpPost]
-        public async Task <IActionResult> WriterEditProfile(UserUpdateModel model)
+        public async Task<IActionResult> WriterEditProfile(UserUpdateModel model)
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             values.NameSurname = model.namesurname;
@@ -103,17 +96,17 @@ namespace ProPersonal.Controllers
             return RedirectToAction("index", "Dashboard");
 
         }
-        
 
 
-       
-        [HttpGet]       
+
+
+        [HttpGet]
         public IActionResult WriterAdd()  //this methods is for adding images to the writer's profile... The name is missing...
         {
             return View();
 
         }
-        
+
         [HttpPost]
         public IActionResult WriterAdd(AddProfileImage p)
         {
@@ -124,7 +117,7 @@ namespace ProPersonal.Controllers
                 //gets the path of the image
                 var extension = Path.GetExtension(p.WriterImage.FileName);
                 var newimagename = Guid.NewGuid() + extension; //name the file into the writer image folde with a guid and its name
-                var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/WriterImageFile/",newimagename);
+                var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/WriterImageFile/", newimagename);
                 var stream = new FileStream(location, FileMode.Create); //creats the full path
                 p.WriterImage.CopyTo(stream); //copies to it
                 w.WriterImage = newimagename;
@@ -138,7 +131,7 @@ namespace ProPersonal.Controllers
 
             wm.TAdd(w);
             return RedirectToAction("Index", "Dashboard");
-            
+
         }
 
     }
