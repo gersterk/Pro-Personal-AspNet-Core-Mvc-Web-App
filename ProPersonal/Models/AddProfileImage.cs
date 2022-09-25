@@ -13,3 +13,4 @@ namespace ProPersonal.Models
         public bool IsActiveWriter { get; set; }
     }
 }
+
