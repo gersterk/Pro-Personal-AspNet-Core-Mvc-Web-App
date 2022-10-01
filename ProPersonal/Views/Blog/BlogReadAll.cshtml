@@ -45,14 +45,14 @@
                             </div>
 
                             <h3>
-                                <a href="single.html">@item.BlogName </a>
+                                <a href="#">@item.BlogName </a>
                             </h3>
                             <p>@item.BlogContent</p>
                             <a href="/Project/Index" class="btn btn-primary read-m">Other Blogs</a>
                         </div>
 
                     }
-
+                    
 
                     @await Component.InvokeAsync("CommentListByBlog", new {id= ViewBag.i} )
                     @*					@await Html.PartialAsync("~/Views/CommentMail/CommentListByBlog.cshtml")
