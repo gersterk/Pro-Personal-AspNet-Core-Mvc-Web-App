@@ -6,7 +6,6 @@
 
 <html lang="zxx">
 
-
 <body>
 
     <!--//banner-->
@@ -20,13 +19,12 @@
                     @foreach (var item in Model)
                     {
 
-
                         <div class="blog-grid-top">
                             <div class="b-grid-top">
                                 <div class="blog_info_left_grid">
                                     <a href="#">
-                                        <img src="@item.ProjectImage" class="img-fluid">
-                                    </a>
+                                        <img src="@item.ProjectImage" class="img-fluid" alt="">
+                                    </a>  
                                 </div>
                                 <div class="blog-info-middle">
                                     <ul>
@@ -49,7 +47,6 @@
 
                     }
 
-
 @*                    @await Component.InvokeAsync("CommentListByBlog", new {id= ViewBag.i} )
                     @*					@await Html.PartialAsync("~/Views/CommentMail/CommentListByBlog.cshtml")
                     *@
@@ -70,23 +67,6 @@
 
                         @await Component.InvokeAsync("WriterBlogs")
 
-                        <div class="single-gd tech-btm">
-                            <h4>Recent Post</h4>
-                            <div class="blog-grids">
-                                <div class="blog-grid-left">
-                                    <a href="single.html">
-                                        <img src="~/Theme/web/images/b1.jpg" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                                <div class="blog-grid-right">
-
-                                    <h5>
-                                        <a href="single.html">Pellentesque dui, non felis. Maecenas male</a>
-                                    </h5>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        </div>
                     </div>
 
                 </aside>
