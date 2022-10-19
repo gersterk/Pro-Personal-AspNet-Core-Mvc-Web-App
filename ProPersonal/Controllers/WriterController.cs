@@ -116,7 +116,7 @@ namespace ProPersonal.Controllers
             {
                 //gets the path of the image
                 var extension = Path.GetExtension(p.WriterImage.FileName);
-                var newimagename = Guid.NewGuid() + extension; //name the file into the writer image folde with a guid and its name
+                var newimagename = Guid.NewGuid() + extension; //name the file into the writer image folder with a guid and its name
                 var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/WriterImageFile/", newimagename);
                 var stream = new FileStream(location, FileMode.Create); //creats the full path
                 p.WriterImage.CopyTo(stream); //copies to it
